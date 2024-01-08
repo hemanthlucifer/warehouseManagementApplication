@@ -2,6 +2,7 @@ package com.inventoryAppliction.logisticsService.model;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,18 +22,22 @@ public class Store implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column
 	private int storeId;
 	
 	@Getter
 	@Setter
+	@Column
 	private String storeName;
 	
 	@Getter
 	@Setter
+	@Column
 	private String storeLocation;
 	
 	@Getter
 	@Setter
+	@Column
 	private int noOfOrderForStore;
 
 }
