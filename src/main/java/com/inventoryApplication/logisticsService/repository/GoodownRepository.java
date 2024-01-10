@@ -9,6 +9,6 @@ import com.inventoryAppliction.logisticsService.model.Goodown;
 @Repository
 public interface GoodownRepository extends JpaRepository<Goodown,Integer> {
 	
-	Goodown findGoodownByGoodownId(String goodownId);
+	Goodown findByGoodownId(String goodownId);
 
 }
