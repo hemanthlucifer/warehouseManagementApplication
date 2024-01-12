@@ -21,6 +21,14 @@ public class CreateQuoteDTO implements Serializable {/**
 	
 	@Getter
 	@Setter
-	private List<QuoteProduct> quoteProduct;
+	private int storeId;
+	
+	@Getter
+	@Setter
+	private String goodownId;
+	
+	@Getter
+	@Setter
+	private List<QuoteProduct> quoteProducts;
 
 }

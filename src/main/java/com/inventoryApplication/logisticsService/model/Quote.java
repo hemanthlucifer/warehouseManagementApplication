@@ -30,5 +30,15 @@ public class Quote {
 	@Column
 	private String quoteGroup;
 	
+	@Getter
+	@Setter
+	@Column
+	private int storeId;
+	
+	@Getter
+	@Setter
+	@Column
+	private String goodownId;
+	
 
 }

@@ -11,5 +11,6 @@ import com.inventoryApplication.logisticsService.model.QuoteGroup;
 public interface QuoteGroupRepository extends JpaRepository<QuoteGroup,Integer> {
 	
 	List<QuoteGroup> findAllByQuoteId(int quoteId);
+	QuoteGroup findByQuoteIdAndProductId(int quoteId, int productId);
 
 }

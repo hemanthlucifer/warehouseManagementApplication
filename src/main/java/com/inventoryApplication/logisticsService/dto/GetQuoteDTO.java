@@ -1,6 +1,9 @@
 package com.inventoryApplication.logisticsService.dto;
 
 import java.io.Serializable;
+import java.util.List;
+
+import com.inventoryApplication.logisticsService.model.QuoteProduct;
 
 import lombok.Data;
 import lombok.Getter;
@@ -19,5 +22,17 @@ public class GetQuoteDTO implements Serializable {/**
 	@Getter
 	@Setter
 	private double quotePrice;
+	
+	@Getter
+	@Setter
+	private int storeId;
+	
+	@Getter
+	@Setter
+	private String goodownId;
+	
+	@Getter
+	@Setter
+	private List<QuoteProduct> quoteProducts;
 
 }

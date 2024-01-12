@@ -9,8 +9,8 @@ public interface QuoteService {
 	public GetQuoteDTO createQuote(CreateQuoteDTO quote);
 	public GetQuoteDTO getQuoteByQuoteId(int quoteId);
 	public void deleteQuoteById(int quoteId);
-	public GetQuoteDTO deleteProductInQuote(int productId);
-	public GetQuoteDTO addProductInQuote(QuoteProduct product);
-	public GetQuoteDTO changePriceInQuote(double price);
+	public void deleteProductInQuote(int quoteId,int productId);
+	public GetQuoteDTO addProductInQuote(int quoteId,QuoteProduct product);
+	public GetQuoteDTO changePriceInQuote(int quoteId,double price);
 
 }

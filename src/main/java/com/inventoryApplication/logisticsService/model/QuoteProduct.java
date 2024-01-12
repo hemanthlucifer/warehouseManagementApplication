@@ -33,9 +33,6 @@ public class QuoteProduct {
 	@Column
 	private int quantity;
 	
-	@Getter
-	@Setter
-	@Column
-	private int storeId;
+	
 	
 }

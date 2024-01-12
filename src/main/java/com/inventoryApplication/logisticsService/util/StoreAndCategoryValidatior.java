@@ -24,17 +24,24 @@ public class StoreAndCategoryValidatior {
 	@Autowired
 	private GoodownRepository goodownRepository;
 	
-	public void validate(String categoryId,int storeId) throws Exception {
+	public void validate(String categoryId,int storeId){
 		Optional<Store> store = storeRepository.findById(storeId);
 		Optional<Category> category = categoryRepository.findById(categoryId);
 		if(!store.isEmpty()&&!category.isEmpty()) {
-			throw new Exception();
+			
 		}
 	}
 	
 	public void goodownValidator(String goodownId) {
 		Goodown goodown = goodownRepository.findByGoodownId(goodownId);
 		if(goodown==null) {
+			
+		}
+	}
+	
+	public void validateStore(int storeId) {
+		Optional<Store> store = storeRepository.findById(storeId);
+		if(store.isEmpty()) {
 			
 		}
 	}
