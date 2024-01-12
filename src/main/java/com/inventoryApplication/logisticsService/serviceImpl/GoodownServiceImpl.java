@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import com.inventoryApplication.logisticsService.dto.GoodownDTO;
+import com.inventoryApplication.logisticsService.model.Goodown;
 import com.inventoryApplication.logisticsService.repository.GoodownRepository;
 import com.inventoryApplication.logisticsService.service.GoodownService;
 import com.inventoryApplication.logisticsService.util.Convertor;
-import com.inventoryAppliction.logisticsService.model.Goodown;
+
 import org.springframework.util.ReflectionUtils;
 public class GoodownServiceImpl implements GoodownService {
 	

@@ -1,14 +1,15 @@
 package com.inventoryApplication.logisticsService.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.inventoryApplication.logisticsService.model.Goodown;
-
+import com.inventoryApplication.logisticsService.model.Quote;
 
 @Repository
-public interface GoodownRepository extends JpaRepository<Goodown,Integer> {
+public interface QuoteRepository extends JpaRepository<Quote,Integer> {
 	
-	Goodown findByGoodownId(String goodownId);
+	
 
 }

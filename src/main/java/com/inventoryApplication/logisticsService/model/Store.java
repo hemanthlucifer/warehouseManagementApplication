@@ -1,4 +1,4 @@
-package com.inventoryAppliction.logisticsService.model;
+package com.inventoryApplication.logisticsService.model;
 
 import java.io.Serializable;
 
@@ -11,10 +11,9 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-
-@Data
 @Entity
-public class Goodown implements Serializable {
+@Data
+public class Store implements Serializable {
 	
 	/**
 	 * 
@@ -24,24 +23,21 @@ public class Goodown implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column
-	private int id;
-	
-	@Getter
-	@Column
-	private String goodownId;
+	private int storeId;
 	
 	@Getter
 	@Setter
 	@Column
-	private String location;
+	private String storeName;
 	
 	@Getter
 	@Setter
 	@Column
-	private String goodownManager;
+	private String storeLocation;
 	
-	public Goodown(){
-		this.goodownId = "GI"+"-"+this.id;
-	}
+	@Getter
+	@Setter
+	@Column
+	private int noOfOrderForStore;
 
 }

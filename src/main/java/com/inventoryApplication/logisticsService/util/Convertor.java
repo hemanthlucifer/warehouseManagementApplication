@@ -1,16 +1,28 @@
 package com.inventoryApplication.logisticsService.util;
 
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.inventoryApplication.logisticsService.dto.GoodownDTO;
 import com.inventoryApplication.logisticsService.dto.GoodownProductDTO;
 import com.inventoryApplication.logisticsService.dto.StoreDTO;
-import com.inventoryAppliction.logisticsService.model.Goodown;
-import com.inventoryAppliction.logisticsService.model.GoodownProduct;
-import com.inventoryAppliction.logisticsService.model.Store;
+import com.inventoryApplication.logisticsService.model.Category;
+import com.inventoryApplication.logisticsService.model.Goodown;
+import com.inventoryApplication.logisticsService.model.GoodownProduct;
+import com.inventoryApplication.logisticsService.model.Store;
+import com.inventoryApplication.logisticsService.repository.CategoryRepository;
+import com.inventoryApplication.logisticsService.repository.GoodownRepository;
 
 @Component
 public class Convertor {
+	
+	@Autowired
+	private GoodownRepository goodownRepository;
+	
+	@Autowired
+	private CategoryRepository categoryRepository;
 	
 	public Store convertStoreDtoToEntity(StoreDTO storeDto) {
 		Store store = new Store();
@@ -29,21 +41,23 @@ public class Convertor {
 	
 	public GoodownProduct convertGProductDtoToEntity(GoodownProductDTO goodownProductDto) {
 		GoodownProduct goodownProduct = new GoodownProduct();
+		Goodown goodown = goodownRepository.findByGoodownId(goodownProductDto.getGoodownId());
+		Optional<Category> category = categoryRepository.findById(goodownProductDto.getCategoryId());
 		goodownProduct.setProductId(goodownProductDto.getProductId());
-		goodownProduct.setActualQuantity(goodownProductDto.getActualQuantity());
-		goodownProduct.setAvailableQuantity(goodownProductDto.getAvailableQuantity());
-		goodownProduct.setGoodownId(goodownProductDto.getGoodownId());
-		goodownProduct.setStorageQuantity(goodownProductDto.getStorageQuantity());
+		goodownProduct.setGoodownId(goodown);
+		goodownProduct.setCategoryId(category.get());
+		goodownProduct.setQuantity(goodownProductDto.getQuantity());
+		goodownProduct.setStoreId(goodownProductDto.getStoreId());
 		return goodownProduct;
 	}
 	
 	public GoodownProductDTO convertGoodownProductToDto(GoodownProduct goodownProduct) {
 		GoodownProductDTO goodownProductDto = new GoodownProductDTO();
-		goodownProductDto.setGoodownId(goodownProduct.getGoodownId());
+		goodownProductDto.setGoodownId(goodownProduct.getGoodownId().getGoodownId());
 		goodownProductDto.setProductId(goodownProduct.getProductId());
-		goodownProductDto.setActualQuantity(goodownProduct.getActualQuantity());
-		goodownProductDto.setAvailableQuantity(goodownProduct.getAvailableQuantity());
-		goodownProductDto.setStorageQuantity(goodownProduct.getStorageQuantity());
+		goodownProductDto.setCategoryId(goodownProduct.getCategoryId().getCategoryId());
+		goodownProductDto.setQuantity(goodownProduct.getQuantity());
+		goodownProductDto.setStoreId(goodownProduct.getStoreId());
 		return goodownProductDto;
 	}
 	

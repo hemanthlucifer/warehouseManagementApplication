@@ -9,10 +9,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.inventoryApplication.logisticsService.dto.GoodownProductDTO;
+import com.inventoryApplication.logisticsService.model.GoodownProduct;
 import com.inventoryApplication.logisticsService.repository.ProductRepository;
 import com.inventoryApplication.logisticsService.service.GoodownProductService;
 import com.inventoryApplication.logisticsService.util.Convertor;
-import com.inventoryAppliction.logisticsService.model.GoodownProduct;
+import com.inventoryApplication.logisticsService.util.StoreAndCategoryValidatior;
+
 import org.springframework.util.ReflectionUtils;
 
 public class GoodownProductsServiceImpl implements GoodownProductService {
@@ -22,9 +24,13 @@ public class GoodownProductsServiceImpl implements GoodownProductService {
 	
 	@Autowired
 	private Convertor convertor;
+	
+	@Autowired
+	private StoreAndCategoryValidatior storeAndCategoryValidatior;
 
 	@Override
 	public GoodownProductDTO addProductToGoodown(GoodownProductDTO goodownProductDTO) {
+		//storeAndCategoryValidatior.validate(goodownProductDTO.getCategoryId().getCategoryId(), goodownProductDTO.getStoreId());
 		GoodownProduct goodownProduct = convertor.convertGProductDtoToEntity(goodownProductDTO);
 		goodownProduct = productRepository.save(goodownProduct);
 		GoodownProductDTO productDto = convertor.convertGoodownProductToDto(goodownProduct);

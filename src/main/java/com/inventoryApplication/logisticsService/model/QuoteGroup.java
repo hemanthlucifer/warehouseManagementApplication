@@ -1,6 +1,4 @@
-package com.inventoryAppliction.logisticsService.model;
-
-import java.io.Serializable;
+package com.inventoryApplication.logisticsService.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,31 +11,28 @@ import lombok.Setter;
 
 @Entity
 @Data
-public class Store implements Serializable {
+public class QuoteGroup {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Getter
+	@Setter
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column
-	private int storeId;
+	private int serialNumber;
 	
 	@Getter
 	@Setter
 	@Column
-	private String storeName;
+	private String quoteGroup;
 	
 	@Getter
 	@Setter
 	@Column
-	private String storeLocation;
+	private int quoteId;
 	
 	@Getter
 	@Setter
 	@Column
-	private int noOfOrderForStore;
+	private int productId;
 
 }

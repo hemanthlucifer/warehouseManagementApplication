@@ -7,10 +7,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.inventoryApplication.logisticsService.dto.StoreDTO;
+import com.inventoryApplication.logisticsService.model.Store;
 import com.inventoryApplication.logisticsService.repository.StoreRepository;
 import com.inventoryApplication.logisticsService.service.StoreService;
 import com.inventoryApplication.logisticsService.util.Convertor;
-import com.inventoryAppliction.logisticsService.model.Store;
+
 import org.springframework.util.ReflectionUtils;
 
 public class StoreServiceImpl implements StoreService {

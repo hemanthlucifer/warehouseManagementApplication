@@ -3,12 +3,9 @@ package com.inventoryApplication.logisticsService.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.inventoryApplication.logisticsService.model.Goodown;
-
+import com.inventoryApplication.logisticsService.model.QuoteProduct;
 
 @Repository
-public interface GoodownRepository extends JpaRepository<Goodown,Integer> {
-	
-	Goodown findByGoodownId(String goodownId);
+public interface QuoteProductRepository extends JpaRepository<QuoteProduct,Integer> {
 
 }

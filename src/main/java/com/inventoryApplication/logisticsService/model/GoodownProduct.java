@@ -1,4 +1,4 @@
-package com.inventoryAppliction.logisticsService.model;
+package com.inventoryApplication.logisticsService.model;
 
 import java.io.Serializable;
 
@@ -24,6 +24,7 @@ public class GoodownProduct implements Serializable {
 	@Column
 	private String productId;
 	
+	
 	@Getter
 	@Setter
 	@ManyToOne
@@ -33,17 +34,21 @@ public class GoodownProduct implements Serializable {
 	
 	@Getter
 	@Setter
+	@ManyToOne
 	@Column
-	private int  storageQuantity;
+	@JoinColumn(name="categoryId",nullable=false)
+	private Category categoryId;
 	
 	@Getter
 	@Setter
 	@Column
-	private int actualQuantity;
+	private int quantity;
 	
 	@Getter
 	@Setter
 	@Column
-	private int availableQuantity;
+	@ManyToOne
+	@JoinColumn(name="storeId",nullable=false)
+	private int storeId; 
 
 }
