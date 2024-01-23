@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.inventoryApplication.logisticsService.dto.GoodownProductDTO;
 import com.inventoryApplication.logisticsService.model.GoodownProduct;
@@ -17,6 +18,7 @@ import com.inventoryApplication.logisticsService.util.StoreAndCategoryValidatior
 
 import org.springframework.util.ReflectionUtils;
 
+@Service
 public class GoodownProductsServiceImpl implements GoodownProductService {
 	
 	@Autowired

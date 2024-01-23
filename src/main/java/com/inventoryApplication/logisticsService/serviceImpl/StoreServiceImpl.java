@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.inventoryApplication.logisticsService.dto.StoreDTO;
 import com.inventoryApplication.logisticsService.model.Store;
@@ -13,7 +14,7 @@ import com.inventoryApplication.logisticsService.service.StoreService;
 import com.inventoryApplication.logisticsService.util.Convertor;
 
 import org.springframework.util.ReflectionUtils;
-
+@Service
 public class StoreServiceImpl implements StoreService {
 	
 	@Autowired

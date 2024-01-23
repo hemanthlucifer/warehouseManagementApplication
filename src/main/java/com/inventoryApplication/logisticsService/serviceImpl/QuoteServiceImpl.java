@@ -121,8 +121,6 @@ public class QuoteServiceImpl implements QuoteService {
 				products.add(quoteProduct.get());
 			});
 			quoteDto.setQuoteProducts(products);
-		
-		
 		return quoteDto;
 		
 	}
