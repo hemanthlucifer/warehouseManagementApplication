@@ -21,7 +21,6 @@ public class Category {
 	
 	@Getter
 	@Setter
-	@Column
 	@ManyToOne
 	@JoinColumn(name="goodownId",nullable=false)
 	private Goodown goodownId;

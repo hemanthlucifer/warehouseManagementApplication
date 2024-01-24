@@ -29,13 +29,11 @@ public class GoodownProduct implements Serializable {
 	@Setter
 	@ManyToOne
 	@JoinColumn(name="goodownId",nullable=false)
-	@Column
 	private Goodown goodownId;
 	
 	@Getter
 	@Setter
 	@ManyToOne
-	@Column
 	@JoinColumn(name="categoryId",nullable=false)
 	private Category categoryId;
 	
@@ -46,9 +44,8 @@ public class GoodownProduct implements Serializable {
 	
 	@Getter
 	@Setter
-	@Column
 	@ManyToOne
 	@JoinColumn(name="storeId",nullable=false)
-	private int storeId; 
+	private Store storeId; 
 
 }
