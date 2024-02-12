@@ -1,0 +1,86 @@
+12:41:39.983 [restartedMain] INFO  c.i.l.LogisticsServiceApplication - Starting LogisticsServiceApplication using Java 17.0.9 with PID 11432 (C:\Hemanth\logisticsService\target\classes started by heman in C:\Hemanth\logisticsService)
+12:41:40.001 [restartedMain] INFO  c.i.l.LogisticsServiceApplication - No active profile set, falling back to 1 default profile: "default"
+12:41:40.079 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+12:41:40.080 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+12:41:41.405 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+12:41:41.691 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 271 ms. Found 7 JPA repository interfaces.
+12:41:42.233 [restartedMain] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=522ea22f-843b-317f-83fc-01cc46179b57
+12:41:42.977 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8082 (http)
+12:41:42.991 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8082"]
+12:41:42.995 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+12:41:42.996 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+12:41:43.110 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+12:41:43.110 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3029 ms
+12:41:43.332 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+12:41:43.443 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.20.Final
+12:41:43.448 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+12:41:43.999 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+12:41:44.060 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+12:41:44.488 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6d39c315
+12:41:44.491 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+12:41:44.575 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+12:41:46.074 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+12:41:46.201 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+12:41:46.973 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+12:41:47.615 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+12:41:47.748 [restartedMain] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+12:41:47.920 [restartedMain] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+12:41:48.052 [restartedMain] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+12:41:48.112 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+12:41:48.121 [restartedMain] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+12:41:48.164 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+12:41:48.164 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+12:41:48.164 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+12:41:48.164 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+12:41:48.164 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+12:41:48.164 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+12:41:48.164 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+12:41:48.590 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+12:41:48.594 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+12:41:48.607 [restartedMain] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+12:41:48.615 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1707635508614 with initial instances count: 1
+12:41:48.619 [restartedMain] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application LOGISTICSSERVICE with eureka with status UP
+12:41:48.620 [restartedMain] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1707635508620, current=UP, previous=STARTING]
+12:41:48.623 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_LOGISTICSSERVICE/192.168.0.7:logisticsService:8082: registering service...
+12:41:48.624 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8082"]
+12:41:48.657 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8082 (http) with context path ''
+12:41:48.659 [restartedMain] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8082
+12:41:48.690 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_LOGISTICSSERVICE/192.168.0.7:logisticsService:8082 - registration status: 204
+12:41:48.756 [restartedMain] INFO  c.i.l.LogisticsServiceApplication - Started LogisticsServiceApplication in 9.406 seconds (process running for 11.015)
+12:46:48.170 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+12:51:48.176 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+12:56:48.186 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+13:01:48.188 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+13:06:48.201 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+13:09:11.852 [http-nio-8082-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13:09:11.853 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+13:09:11.855 [http-nio-8082-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+13:09:11.942 [http-nio-8082-exec-1] INFO  c.i.l.s.CategoryServiceImpl - getAllCategoriesInGoodown started
+13:09:11.942 [http-nio-8082-exec-1] INFO  c.i.l.u.StoreAndCategoryValidatior - goodownValidator started
+13:09:12.128 [http-nio-8082-exec-1] INFO  c.i.l.u.StoreAndCategoryValidatior - goodownValidator completed
+13:09:12.154 [http-nio-8082-exec-1] INFO  c.i.logisticsService.util.Convertor - convertCategoryEntityToDTO started
+13:09:12.154 [http-nio-8082-exec-1] INFO  c.i.logisticsService.util.Convertor - convertCategoryEntityToDTO completed
+13:09:12.154 [http-nio-8082-exec-1] INFO  c.i.l.s.CategoryServiceImpl - getAllCategoriesInGoodown completed
+13:09:39.785 [http-nio-8082-exec-3] INFO  c.i.l.s.CategoryServiceImpl - getAllCategoriesInGoodown started
+13:09:39.787 [http-nio-8082-exec-3] INFO  c.i.l.u.StoreAndCategoryValidatior - goodownValidator started
+13:09:39.793 [http-nio-8082-exec-3] INFO  c.i.l.u.StoreAndCategoryValidatior - goodownValidator completed
+13:09:39.804 [http-nio-8082-exec-3] INFO  c.i.logisticsService.util.Convertor - convertCategoryEntityToDTO started
+13:09:39.805 [http-nio-8082-exec-3] INFO  c.i.logisticsService.util.Convertor - convertCategoryEntityToDTO completed
+13:09:39.805 [http-nio-8082-exec-3] INFO  c.i.l.s.CategoryServiceImpl - getAllCategoriesInGoodown completed
+13:11:48.205 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+13:14:44.949 [RMI TCP Connection(42)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+13:14:44.951 [RMI TCP Connection(42)-127.0.0.1] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application LOGISTICSSERVICE with eureka with status DOWN
+13:14:44.951 [RMI TCP Connection(42)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1707637484951, current=DOWN, previous=UP]
+13:14:44.951 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_LOGISTICSSERVICE/192.168.0.7:logisticsService:8082: registering service...
+13:14:44.968 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_LOGISTICSSERVICE/192.168.0.7:logisticsService:8082 - registration status: 204
+13:14:44.969 [RMI TCP Connection(42)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8082"]
+13:14:44.970 [RMI TCP Connection(42)-127.0.0.1] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+13:14:44.973 [RMI TCP Connection(42)-127.0.0.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+13:14:44.980 [RMI TCP Connection(42)-127.0.0.1] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8082"]
+13:14:44.989 [RMI TCP Connection(42)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+13:14:44.997 [RMI TCP Connection(42)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+13:14:45.011 [RMI TCP Connection(42)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+13:14:45.013 [RMI TCP Connection(42)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+13:14:48.022 [RMI TCP Connection(42)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+13:14:48.040 [RMI TCP Connection(42)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_LOGISTICSSERVICE/192.168.0.7:logisticsService:8082 - deregister  status: 200
+13:14:48.054 [RMI TCP Connection(42)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient

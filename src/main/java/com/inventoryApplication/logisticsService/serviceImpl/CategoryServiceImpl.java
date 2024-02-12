@@ -1,6 +1,7 @@
 package com.inventoryApplication.logisticsService.serviceImpl;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -10,10 +11,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
+
+import com.inventoryApplication.logisticsService.dto.CategoryDTO;
 import com.inventoryApplication.logisticsService.model.Category;
+import com.inventoryApplication.logisticsService.model.Goodown;
 import com.inventoryApplication.logisticsService.repository.CategoryRepository;
 import com.inventoryApplication.logisticsService.repository.GoodownRepository;
 import com.inventoryApplication.logisticsService.service.CategoryService;
+import com.inventoryApplication.logisticsService.util.Convertor;
 import com.inventoryApplication.logisticsService.util.StoreAndCategoryValidatior;
 
 @Service
@@ -28,40 +33,53 @@ public class CategoryServiceImpl implements CategoryService {
 	@Autowired
 	private GoodownRepository goodownRepository;
 	
+	@Autowired
+	private Convertor convertor;
+	
 	private static final Logger logger = LoggerFactory.getLogger(CategoryServiceImpl.class);
 
 	@Override
-	public Category createCategory(Category category) {
+	public CategoryDTO createCategory(CategoryDTO categoryDTO) {
 		logger.info("Create category method started");
-		validator.goodownValidator(category.getGoodownId().getGoodownId());
-		category = categoryRepository.save(category);
+		validator.goodownValidator(categoryDTO.getGoodownId());
+		Goodown goodown = goodownRepository.findByGoodownId(categoryDTO.getGoodownId());
+		Category category = convertor.convertCategoryDTOToCategory(categoryDTO);
+		category.setGoodownId(goodown);
+		Category newCategory = categoryRepository.save(category);
 		logger.info("Category has been saved to repository");
+		categoryDTO = convertor.convertCategoryEntityToDTO(newCategory);
 		logger.info("Create Category method is completed");
-		return category;
+		return categoryDTO;
 	}
 
 	@Override
-	public Category getCategory(String categoryId) {
+	public CategoryDTO getCategory(String categoryId) {
 		logger.info("Get category by category Id method started");
 		Optional<Category> category = categoryRepository.findById(categoryId);
 		if(category.isEmpty()||category==null) {
 			logger.warn("No category found with the given category Id");
 		}
+		CategoryDTO categoryDTO = convertor.convertCategoryEntityToDTO(category.get());
 		logger.info("Get Category by category Id method completed");
-		return category.get();
+		return categoryDTO;
 	}
 
 	@Override
-	public List<Category> getAllCategoriesInGoodown(String goodownId) {
+	public List<CategoryDTO> getAllCategoriesInGoodown(String goodownId) {
 		logger.info("getAllCategoriesInGoodown started");
 		validator.goodownValidator(goodownId);
-		List<Category> catgeory = categoryRepository.findAllByGoodownId(goodownRepository.findByGoodownId(goodownId));
+		List<Category> categories = categoryRepository.findAllByGoodownId(goodownRepository.findByGoodownId(goodownId));
+		List<CategoryDTO> categoryDTOList = new ArrayList<>();
+		categories.forEach(category->{
+			CategoryDTO categoryDTO = convertor.convertCategoryEntityToDTO(category);
+			categoryDTOList.add(categoryDTO);
+		});
 		logger.info("getAllCategoriesInGoodown completed");
-		return catgeory;
+		return categoryDTOList;
 	}
 
 	@Override
-	public Category updateCategory(String categoryId, Map<String, Object> fields) {
+	public CategoryDTO updateCategory(String categoryId, Map<String, Object> fields) {
 		logger.info("updateCategory started");
 		Optional<Category> category = categoryRepository.findById(categoryId);
 		if(category.isEmpty()||category==null) {
@@ -73,8 +91,9 @@ public class CategoryServiceImpl implements CategoryService {
 			field.setAccessible(true);
 			ReflectionUtils.setField(field, category.get(), value);
 		});
+		CategoryDTO categoryDTO = convertor.convertCategoryEntityToDTO(category.get());
 		logger.info("updateCategory completed");
-		return category.get();
+		return categoryDTO;
 	}
 
 	@Override

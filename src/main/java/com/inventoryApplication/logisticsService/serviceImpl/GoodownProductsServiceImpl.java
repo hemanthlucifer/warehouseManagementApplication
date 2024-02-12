@@ -12,7 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.inventoryApplication.logisticsService.dto.GoodownProductDTO;
+import com.inventoryApplication.logisticsService.model.Category;
+import com.inventoryApplication.logisticsService.model.Goodown;
 import com.inventoryApplication.logisticsService.model.GoodownProduct;
+import com.inventoryApplication.logisticsService.repository.CategoryRepository;
 import com.inventoryApplication.logisticsService.repository.GoodownRepository;
 import com.inventoryApplication.logisticsService.repository.ProductRepository;
 import com.inventoryApplication.logisticsService.service.GoodownProductService;
@@ -35,6 +38,9 @@ public class GoodownProductsServiceImpl implements GoodownProductService {
 	
 	@Autowired
 	private GoodownRepository goodownRepository;
+	
+	@Autowired
+	private CategoryRepository categoryRepository;
 	
 	private static final Logger logger = LoggerFactory.getLogger(GoodownProductsServiceImpl.class);
 
@@ -107,6 +113,21 @@ public class GoodownProductsServiceImpl implements GoodownProductService {
 		});
 		logger.info("getAllProductsInAGoodown completed");
 		return productDto;
+	}
+	
+	@Override
+	public List<GoodownProductDTO> getAllProductsInCategoryInGoodown(String goodownId, String categoryId){
+		storeAndCategoryValidatior.goodownValidator(goodownId);
+		storeAndCategoryValidatior.validateCategory(categoryId);
+		Optional<Category> category = categoryRepository.findById(categoryId);
+		Goodown goodown = goodownRepository.findByGoodownId(goodownId);
+		List<GoodownProductDTO> goodownProductDto = new ArrayList<>();
+		List<GoodownProduct> goodownProducts = productRepository.findAllByGoodownIdAndCategoryId(goodown, category.get());
+		goodownProducts.forEach(goodownProduct->{
+			GoodownProductDTO dto = convertor.convertGoodownProductToDto(goodownProduct);
+			goodownProductDto.add(dto);
+		});
+		return goodownProductDto;
 	}
 
 }

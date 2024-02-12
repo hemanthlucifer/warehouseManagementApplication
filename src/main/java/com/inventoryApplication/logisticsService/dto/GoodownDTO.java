@@ -2,7 +2,7 @@ package com.inventoryApplication.logisticsService.dto;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Column;
+
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +22,10 @@ public class GoodownDTO implements Serializable {
 	@Getter
 	@Setter
 	private String goodownManager;
+	
+	@Getter
+	@Setter
+	private String goodownId;
 	
 	
 

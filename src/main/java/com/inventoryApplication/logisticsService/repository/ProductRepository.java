@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.inventoryApplication.logisticsService.model.Category;
 import com.inventoryApplication.logisticsService.model.Goodown;
 import com.inventoryApplication.logisticsService.model.GoodownProduct;
 
@@ -12,5 +13,7 @@ import com.inventoryApplication.logisticsService.model.GoodownProduct;
 public interface ProductRepository extends JpaRepository<GoodownProduct,String> {
     
 	List<GoodownProduct> findAllByGoodownId(Goodown goodownId);
+	
+	List<GoodownProduct> findAllByGoodownIdAndCategoryId(Goodown goodownId,Category categoryId);
 	
 }

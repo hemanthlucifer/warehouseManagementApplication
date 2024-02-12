@@ -27,7 +27,8 @@ public class GoodownServiceImpl implements GoodownService {
 	public GoodownDTO createGoodown(GoodownDTO goodownDTO) {
 		Goodown goodown = convertor.convertGoodownDtoToEntity(goodownDTO);
 		goodown = goodownRepository.save(goodown);
-		goodownDTO = convertor.convertGoodownEntityToGoodownDTO(goodown);
+		goodown.setGoodownId("GI"+"-"+goodown.getId());
+		goodownDTO = convertor.convertGoodownEntityToGoodownDTO(goodownRepository.save(goodown));
 		return goodownDTO;
 	}
 

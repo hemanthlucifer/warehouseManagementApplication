@@ -12,5 +12,6 @@ public interface GoodownProductService {
 	public GoodownProductDTO getGoodownProductById(String goodownId);
 	public void deleteGoodownProductById(String goodownId);
 	public List<GoodownProductDTO> getAllProductsInAGoodown(String goodownId);
+	public List<GoodownProductDTO> getAllProductsInCategoryInGoodown(String goodownId, String categoryId);
 
 }

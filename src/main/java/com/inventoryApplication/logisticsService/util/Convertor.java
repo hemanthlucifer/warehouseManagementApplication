@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.inventoryApplication.logisticsService.dto.CategoryDTO;
 import com.inventoryApplication.logisticsService.dto.GoodownDTO;
 import com.inventoryApplication.logisticsService.dto.GoodownProductDTO;
 import com.inventoryApplication.logisticsService.dto.StoreDTO;
@@ -92,8 +93,33 @@ public class Convertor {
 		GoodownDTO goodownDto = new GoodownDTO();
 		goodownDto.setGoodownManager(goodown.getGoodownManager());
 		goodownDto.setLocation(goodown.getLocation());
+		goodownDto.setGoodownId(goodown.getGoodownId());
 		logger.info("convertGoodownEntityToGoodownDTO completed");
 		return goodownDto;
+	}
+	
+	public CategoryDTO convertCategoryEntityToDTO(Category category) {
+		logger.info("convertCategoryEntityToDTO started");
+		CategoryDTO categoryDTO = new CategoryDTO();
+		categoryDTO.setCategoryId(category.getCategoryId());
+		categoryDTO.setAvailableCapacity(category.getAvailableCapacity());
+		categoryDTO.setGoodownCapacity(category.getGoodownCapacity());
+		categoryDTO.setGoodownId(category.getGoodownId().getGoodownId());
+		categoryDTO.setOccupiedCapacity(category.getOccupiedCapacity());
+		logger.info("convertCategoryEntityToDTO completed");
+		return categoryDTO;
+	}
+	
+	public Category convertCategoryDTOToCategory(CategoryDTO categoryDTO) {
+		logger.info("convertCategotyToCategoryDTO started");
+		Category category = new Category();
+		category.setAvailableCapacity(categoryDTO.getAvailableCapacity());
+		category.setCategoryId(categoryDTO.getCategoryId());
+		category.setGoodownCapacity(categoryDTO.getGoodownCapacity());
+		/** will set goodownID in service class */
+		category.setOccupiedCapacity(categoryDTO.getOccupiedCapacity());
+		logger.info("convertCategotyToCategoryDTO completed");
+		return category;
 	}
 
 }

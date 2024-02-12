@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,7 +40,7 @@ public class QuotationController {
 	})
 	@ApiOperation(value="Quotation creation",notes="This API is used for creating the quotation",nickname="Create Quotation")
 	@PostMapping("/")
-	public ResponseEntity<GetQuoteDTO> createQuotation(CreateQuoteDTO quoteDto) {
+	public ResponseEntity<GetQuoteDTO> createQuotation(@RequestBody CreateQuoteDTO quoteDto) {
 		GetQuoteDTO quote = service.createQuote(quoteDto);
 		return new ResponseEntity<>(quote,HttpStatus.OK);
 	}

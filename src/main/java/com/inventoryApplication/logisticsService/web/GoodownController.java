@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,7 +36,7 @@ public class GoodownController {
 			@ApiResponse(code=500,message="Something went wrong")
 	})
 	@PostMapping("/")
-	public ResponseEntity<GoodownDTO> createGoodown(GoodownDTO goodown) {
+	public ResponseEntity<GoodownDTO> createGoodown(@RequestBody GoodownDTO goodown) {
 		GoodownDTO goodownDTO = service.createGoodown(goodown);
 		return new ResponseEntity<>(goodownDTO,HttpStatus.OK);
 	}
