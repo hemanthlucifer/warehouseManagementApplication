@@ -1,11 +1,11 @@
-package com.inventoryApplication.logisticsService.dto;
+package com.application.warehouseManagement.dto;
 
 import java.io.Serializable;
 
-import com.inventoryApplication.logisticsService.model.Category;
-import com.inventoryApplication.logisticsService.model.Goodown;
+import com.application.warehouseManagement.model.Category;
+import com.application.warehouseManagement.model.Goodown;
 
-
+import jakarta.persistence.Column;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +20,20 @@ public class GoodownProductDTO implements Serializable {/**
 	@Getter
 	@Setter
 	private String productId;
+	
+	
+	@Getter
+	@Setter
+	private String productManufacturer;
+	
+	@Getter
+	@Setter
+	private String productVersion;
+	
+	@Getter
+	@Setter
+	private String productDescription;
+	
 	
 	
 	@Getter

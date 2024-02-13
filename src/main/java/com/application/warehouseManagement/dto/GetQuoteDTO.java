@@ -1,9 +1,9 @@
-package com.inventoryApplication.logisticsService.dto;
+package com.application.warehouseManagement.dto;
 
 import java.io.Serializable;
 import java.util.List;
 
-import com.inventoryApplication.logisticsService.model.QuoteProduct;
+import com.application.warehouseManagement.model.QuoteProduct;
 
 import lombok.Data;
 import lombok.Getter;

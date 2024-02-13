@@ -1,6 +1,7 @@
-package com.inventoryApplication.logisticsService.model;
+package com.application.warehouseManagement.model;
 
 import java.io.Serializable;
+import java.util.Map;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,6 +30,22 @@ public class GoodownProduct implements Serializable {
 	
 	@Getter
 	@Setter
+	@Column
+	private String productManufacturer;
+	
+	@Getter
+	@Setter
+	@Column
+	private String productVersion;
+	
+	@Getter
+	@Setter
+	@Column
+	private String productDescription;
+	
+	
+	@Getter
+	@Setter
 	@ManyToOne
 	@JoinColumn(name="goodownId",nullable=false)
 	private Goodown goodownId;
@@ -49,5 +66,7 @@ public class GoodownProduct implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="storeId",nullable=false)
 	private Store storeId; 
+	
+	
 
 }

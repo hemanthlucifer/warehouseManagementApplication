@@ -1,9 +1,9 @@
-package com.inventoryApplication.logisticsService.service;
+package com.application.warehouseManagement.service;
 
 import java.util.List;
 import java.util.Map;
 
-import com.inventoryApplication.logisticsService.dto.GoodownProductDTO;
+import com.application.warehouseManagement.dto.GoodownProductDTO;
 
 public interface GoodownProductService {
 	

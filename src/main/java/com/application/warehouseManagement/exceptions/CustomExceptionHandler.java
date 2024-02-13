@@ -1,4 +1,4 @@
-package com.inventoryApplication.logisticsService.exceptions;
+package com.application.warehouseManagement.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

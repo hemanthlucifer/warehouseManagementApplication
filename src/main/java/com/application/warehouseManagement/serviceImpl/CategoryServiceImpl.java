@@ -1,4 +1,4 @@
-package com.inventoryApplication.logisticsService.serviceImpl;
+package com.application.warehouseManagement.serviceImpl;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -12,14 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
 
-import com.inventoryApplication.logisticsService.dto.CategoryDTO;
-import com.inventoryApplication.logisticsService.model.Category;
-import com.inventoryApplication.logisticsService.model.Goodown;
-import com.inventoryApplication.logisticsService.repository.CategoryRepository;
-import com.inventoryApplication.logisticsService.repository.GoodownRepository;
-import com.inventoryApplication.logisticsService.service.CategoryService;
-import com.inventoryApplication.logisticsService.util.Convertor;
-import com.inventoryApplication.logisticsService.util.StoreAndCategoryValidatior;
+import com.application.warehouseManagement.dto.CategoryDTO;
+import com.application.warehouseManagement.model.Category;
+import com.application.warehouseManagement.model.Goodown;
+import com.application.warehouseManagement.repository.CategoryRepository;
+import com.application.warehouseManagement.repository.GoodownRepository;
+import com.application.warehouseManagement.service.CategoryService;
+import com.application.warehouseManagement.util.Convertor;
+import com.application.warehouseManagement.util.StoreAndCategoryValidatior;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {

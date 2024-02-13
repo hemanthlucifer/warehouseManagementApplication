@@ -1,8 +1,8 @@
-package com.inventoryApplication.logisticsService.service;
+package com.application.warehouseManagement.service;
 
-import com.inventoryApplication.logisticsService.dto.CreateQuoteDTO;
-import com.inventoryApplication.logisticsService.dto.GetQuoteDTO;
-import com.inventoryApplication.logisticsService.model.QuoteProduct;
+import com.application.warehouseManagement.dto.CreateQuoteDTO;
+import com.application.warehouseManagement.dto.GetQuoteDTO;
+import com.application.warehouseManagement.model.QuoteProduct;
 
 public interface QuoteService {
 	

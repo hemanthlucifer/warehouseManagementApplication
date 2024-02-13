@@ -1,8 +1,8 @@
-package com.inventoryApplication.logisticsService.service;
+package com.application.warehouseManagement.service;
 
 import java.util.Map;
 
-import com.inventoryApplication.logisticsService.dto.StoreDTO;
+import com.application.warehouseManagement.dto.StoreDTO;
 
 public interface StoreService {
 	

@@ -1,4 +1,4 @@
-package com.inventoryApplication.logisticsService.serviceImpl;
+package com.application.warehouseManagement.serviceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,16 +7,16 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.inventoryApplication.logisticsService.dto.CreateQuoteDTO;
-import com.inventoryApplication.logisticsService.dto.GetQuoteDTO;
-import com.inventoryApplication.logisticsService.model.Quote;
-import com.inventoryApplication.logisticsService.model.QuoteGroup;
-import com.inventoryApplication.logisticsService.model.QuoteProduct;
-import com.inventoryApplication.logisticsService.repository.QuoteGroupRepository;
-import com.inventoryApplication.logisticsService.repository.QuoteProductRepository;
-import com.inventoryApplication.logisticsService.repository.QuoteRepository;
-import com.inventoryApplication.logisticsService.service.QuoteService;
-import com.inventoryApplication.logisticsService.util.StoreAndCategoryValidatior;
+import com.application.warehouseManagement.dto.CreateQuoteDTO;
+import com.application.warehouseManagement.dto.GetQuoteDTO;
+import com.application.warehouseManagement.model.Quote;
+import com.application.warehouseManagement.model.QuoteGroup;
+import com.application.warehouseManagement.model.QuoteProduct;
+import com.application.warehouseManagement.repository.QuoteGroupRepository;
+import com.application.warehouseManagement.repository.QuoteProductRepository;
+import com.application.warehouseManagement.repository.QuoteRepository;
+import com.application.warehouseManagement.service.QuoteService;
+import com.application.warehouseManagement.util.StoreAndCategoryValidatior;
 
 @Service
 public class QuoteServiceImpl implements QuoteService {

@@ -1,4 +1,4 @@
-package com.inventoryApplication.logisticsService.dto;
+package com.application.warehouseManagement.dto;
 
 import java.io.Serializable;
 

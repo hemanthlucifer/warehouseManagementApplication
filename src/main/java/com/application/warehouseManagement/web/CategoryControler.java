@@ -1,4 +1,4 @@
-package com.inventoryApplication.logisticsService.web;
+package com.application.warehouseManagement.web;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,12 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inventoryApplication.logisticsService.dto.CategoryDTO;
-
-import com.inventoryApplication.logisticsService.repository.GoodownRepository;
-import com.inventoryApplication.logisticsService.service.CategoryService;
-import com.inventoryApplication.logisticsService.util.StoreAndCategoryValidatior;
-
+import com.application.warehouseManagement.dto.CategoryDTO;
+import com.application.warehouseManagement.repository.GoodownRepository;
+import com.application.warehouseManagement.service.CategoryService;
+import com.application.warehouseManagement.util.StoreAndCategoryValidatior;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;

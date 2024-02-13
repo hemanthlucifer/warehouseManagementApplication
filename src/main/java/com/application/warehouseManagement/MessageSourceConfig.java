@@ -1,4 +1,4 @@
-package com.inventoryApplication.logisticsService;
+package com.application.warehouseManagement;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

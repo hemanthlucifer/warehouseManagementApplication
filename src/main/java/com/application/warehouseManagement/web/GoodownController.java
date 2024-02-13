@@ -1,4 +1,4 @@
-package com.inventoryApplication.logisticsService.web;
+package com.application.warehouseManagement.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inventoryApplication.logisticsService.dto.GoodownDTO;
-import com.inventoryApplication.logisticsService.service.GoodownService;
-
+import com.application.warehouseManagement.dto.GoodownDTO;
+import com.application.warehouseManagement.service.GoodownService;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;

@@ -1,4 +1,4 @@
-package com.inventoryApplication.logisticsService.serviceImpl;
+package com.application.warehouseManagement.serviceImpl;
 
 import java.lang.reflect.Field;
 import java.util.Map;
@@ -7,12 +7,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.inventoryApplication.logisticsService.dto.StoreDTO;
-import com.inventoryApplication.logisticsService.model.Store;
-import com.inventoryApplication.logisticsService.repository.StoreRepository;
-import com.inventoryApplication.logisticsService.service.StoreService;
-import com.inventoryApplication.logisticsService.util.Convertor;
-import com.inventoryApplication.logisticsService.util.StoreAndCategoryValidatior;
+import com.application.warehouseManagement.dto.StoreDTO;
+import com.application.warehouseManagement.model.Store;
+import com.application.warehouseManagement.repository.StoreRepository;
+import com.application.warehouseManagement.service.StoreService;
+import com.application.warehouseManagement.util.Convertor;
+import com.application.warehouseManagement.util.StoreAndCategoryValidatior;
 
 import org.springframework.util.ReflectionUtils;
 @Service

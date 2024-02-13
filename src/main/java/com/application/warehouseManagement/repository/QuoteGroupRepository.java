@@ -1,11 +1,11 @@
-package com.inventoryApplication.logisticsService.repository;
+package com.application.warehouseManagement.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.inventoryApplication.logisticsService.model.QuoteGroup;
+import com.application.warehouseManagement.model.QuoteGroup;
 
 @Repository
 public interface QuoteGroupRepository extends JpaRepository<QuoteGroup,Integer> {

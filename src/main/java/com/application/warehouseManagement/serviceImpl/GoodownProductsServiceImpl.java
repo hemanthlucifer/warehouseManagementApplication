@@ -1,4 +1,4 @@
-package com.inventoryApplication.logisticsService.serviceImpl;
+package com.application.warehouseManagement.serviceImpl;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -11,16 +11,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.inventoryApplication.logisticsService.dto.GoodownProductDTO;
-import com.inventoryApplication.logisticsService.model.Category;
-import com.inventoryApplication.logisticsService.model.Goodown;
-import com.inventoryApplication.logisticsService.model.GoodownProduct;
-import com.inventoryApplication.logisticsService.repository.CategoryRepository;
-import com.inventoryApplication.logisticsService.repository.GoodownRepository;
-import com.inventoryApplication.logisticsService.repository.ProductRepository;
-import com.inventoryApplication.logisticsService.service.GoodownProductService;
-import com.inventoryApplication.logisticsService.util.Convertor;
-import com.inventoryApplication.logisticsService.util.StoreAndCategoryValidatior;
+import com.application.warehouseManagement.dto.GoodownProductDTO;
+import com.application.warehouseManagement.model.Category;
+import com.application.warehouseManagement.model.Goodown;
+import com.application.warehouseManagement.model.GoodownProduct;
+import com.application.warehouseManagement.repository.CategoryRepository;
+import com.application.warehouseManagement.repository.GoodownRepository;
+import com.application.warehouseManagement.repository.ProductRepository;
+import com.application.warehouseManagement.service.GoodownProductService;
+import com.application.warehouseManagement.util.Convertor;
+import com.application.warehouseManagement.util.StoreAndCategoryValidatior;
 
 import org.springframework.util.ReflectionUtils;
 

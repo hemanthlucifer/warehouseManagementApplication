@@ -1,4 +1,4 @@
-package com.inventoryApplication.logisticsService.serviceImpl;
+package com.application.warehouseManagement.serviceImpl;
 
 import java.lang.reflect.Field;
 
@@ -7,11 +7,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.inventoryApplication.logisticsService.dto.GoodownDTO;
-import com.inventoryApplication.logisticsService.model.Goodown;
-import com.inventoryApplication.logisticsService.repository.GoodownRepository;
-import com.inventoryApplication.logisticsService.service.GoodownService;
-import com.inventoryApplication.logisticsService.util.Convertor;
+import com.application.warehouseManagement.dto.GoodownDTO;
+import com.application.warehouseManagement.model.Goodown;
+import com.application.warehouseManagement.repository.GoodownRepository;
+import com.application.warehouseManagement.service.GoodownService;
+import com.application.warehouseManagement.util.Convertor;
 
 import org.springframework.util.ReflectionUtils;
 @Service

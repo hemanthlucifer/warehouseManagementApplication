@@ -1,4 +1,4 @@
-package com.inventoryApplication.logisticsService.util;
+package com.application.warehouseManagement.util;
 
 import java.util.Optional;
 
@@ -7,17 +7,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.inventoryApplication.logisticsService.dto.CategoryDTO;
-import com.inventoryApplication.logisticsService.dto.GoodownDTO;
-import com.inventoryApplication.logisticsService.dto.GoodownProductDTO;
-import com.inventoryApplication.logisticsService.dto.StoreDTO;
-import com.inventoryApplication.logisticsService.model.Category;
-import com.inventoryApplication.logisticsService.model.Goodown;
-import com.inventoryApplication.logisticsService.model.GoodownProduct;
-import com.inventoryApplication.logisticsService.model.Store;
-import com.inventoryApplication.logisticsService.repository.CategoryRepository;
-import com.inventoryApplication.logisticsService.repository.GoodownRepository;
-import com.inventoryApplication.logisticsService.repository.StoreRepository;
+import com.application.warehouseManagement.dto.CategoryDTO;
+import com.application.warehouseManagement.dto.GoodownDTO;
+import com.application.warehouseManagement.dto.GoodownProductDTO;
+import com.application.warehouseManagement.dto.StoreDTO;
+import com.application.warehouseManagement.model.Category;
+import com.application.warehouseManagement.model.Goodown;
+import com.application.warehouseManagement.model.GoodownProduct;
+import com.application.warehouseManagement.model.Store;
+import com.application.warehouseManagement.repository.CategoryRepository;
+import com.application.warehouseManagement.repository.GoodownRepository;
+import com.application.warehouseManagement.repository.StoreRepository;
 
 @Component
 public class Convertor {
@@ -63,6 +63,9 @@ public class Convertor {
 		goodownProduct.setCategoryId(category.get());
 		goodownProduct.setQuantity(goodownProductDto.getQuantity());
 		goodownProduct.setStoreId(store.get());
+		goodownProduct.setProductManufacturer(goodownProductDto.getProductManufacturer());
+		goodownProduct.setProductDescription(goodownProductDto.getProductDescription());
+		goodownProduct.setProductVersion(goodownProductDto.getProductVersion());
 		logger.info("convertGProductDtoToEntity completed");
 		return goodownProduct;
 	}
@@ -75,6 +78,9 @@ public class Convertor {
 		goodownProductDto.setCategoryId(goodownProduct.getCategoryId().getCategoryId());
 		goodownProductDto.setQuantity(goodownProduct.getQuantity());
 		goodownProductDto.setStoreId(goodownProduct.getStoreId().getStoreId());
+		goodownProductDto.setProductDescription(goodownProduct.getProductDescription());
+		goodownProductDto.setProductManufacturer(goodownProduct.getProductManufacturer());
+		goodownProductDto.setProductVersion(goodownProduct.getProductVersion());
 		logger.info("convertGoodownProductToDto completed");
 		return goodownProductDto;
 	}

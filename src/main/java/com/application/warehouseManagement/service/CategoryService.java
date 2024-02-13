@@ -1,10 +1,10 @@
-package com.inventoryApplication.logisticsService.service;
+package com.application.warehouseManagement.service;
 
 import java.util.List;
 import java.util.Map;
 
-import com.inventoryApplication.logisticsService.dto.CategoryDTO;
-import com.inventoryApplication.logisticsService.model.Category;
+import com.application.warehouseManagement.dto.CategoryDTO;
+import com.application.warehouseManagement.model.Category;
 
 public interface CategoryService {
 	

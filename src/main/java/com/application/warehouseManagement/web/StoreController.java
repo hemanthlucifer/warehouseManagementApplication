@@ -1,4 +1,4 @@
-package com.inventoryApplication.logisticsService.web;
+package com.application.warehouseManagement.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import com.inventoryApplication.logisticsService.dto.StoreDTO;
-
-import com.inventoryApplication.logisticsService.service.StoreService;
+import com.application.warehouseManagement.dto.StoreDTO;
+import com.application.warehouseManagement.service.StoreService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

@@ -1,9 +1,9 @@
-package com.inventoryApplication.logisticsService.repository;
+package com.application.warehouseManagement.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.inventoryApplication.logisticsService.model.Goodown;
+import com.application.warehouseManagement.model.Goodown;
 
 
 @Repository

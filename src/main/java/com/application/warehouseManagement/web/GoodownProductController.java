@@ -1,4 +1,4 @@
-package com.inventoryApplication.logisticsService.web;
+package com.application.warehouseManagement.web;
 
 import java.util.List;
 
@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inventoryApplication.logisticsService.dto.GoodownProductDTO;
-
-import com.inventoryApplication.logisticsService.service.GoodownProductService;
+import com.application.warehouseManagement.dto.GoodownProductDTO;
+import com.application.warehouseManagement.service.GoodownProductService;
 
 import io.swagger.v3.oas.annotations.Operation;
 

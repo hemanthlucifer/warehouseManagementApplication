@@ -1,4 +1,4 @@
-package com.inventoryApplication.logisticsService.exceptions;
+package com.application.warehouseManagement.exceptions;
 
 public class CategoryNotFoundException extends RuntimeException {
 

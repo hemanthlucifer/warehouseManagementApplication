@@ -1,4 +1,4 @@
-package com.inventoryApplication.logisticsService.model;
+package com.application.warehouseManagement.model;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.inventoryApplication.logisticsService.util;
+package com.application.warehouseManagement.util;
 
 import java.util.Locale;
 import java.util.Optional;
@@ -10,19 +10,19 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Component;
 
-import com.inventoryApplication.logisticsService.exceptions.CategoryNotFoundException;
-import com.inventoryApplication.logisticsService.exceptions.GoodownNotFoundException;
-import com.inventoryApplication.logisticsService.exceptions.MessageCodes;
-import com.inventoryApplication.logisticsService.exceptions.ProductNotFoundException;
-import com.inventoryApplication.logisticsService.exceptions.StoreNotFoundException;
-import com.inventoryApplication.logisticsService.model.Category;
-import com.inventoryApplication.logisticsService.model.Goodown;
-import com.inventoryApplication.logisticsService.model.GoodownProduct;
-import com.inventoryApplication.logisticsService.model.Store;
-import com.inventoryApplication.logisticsService.repository.CategoryRepository;
-import com.inventoryApplication.logisticsService.repository.GoodownRepository;
-import com.inventoryApplication.logisticsService.repository.ProductRepository;
-import com.inventoryApplication.logisticsService.repository.StoreRepository;
+import com.application.warehouseManagement.exceptions.CategoryNotFoundException;
+import com.application.warehouseManagement.exceptions.GoodownNotFoundException;
+import com.application.warehouseManagement.exceptions.MessageCodes;
+import com.application.warehouseManagement.exceptions.ProductNotFoundException;
+import com.application.warehouseManagement.exceptions.StoreNotFoundException;
+import com.application.warehouseManagement.model.Category;
+import com.application.warehouseManagement.model.Goodown;
+import com.application.warehouseManagement.model.GoodownProduct;
+import com.application.warehouseManagement.model.Store;
+import com.application.warehouseManagement.repository.CategoryRepository;
+import com.application.warehouseManagement.repository.GoodownRepository;
+import com.application.warehouseManagement.repository.ProductRepository;
+import com.application.warehouseManagement.repository.StoreRepository;
 
 @Component
 public class StoreAndCategoryValidatior {
