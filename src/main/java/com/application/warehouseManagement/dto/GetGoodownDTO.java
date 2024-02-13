@@ -2,13 +2,12 @@ package com.application.warehouseManagement.dto;
 
 import java.io.Serializable;
 
-
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Data
-public class GoodownDTO implements Serializable {
+public class GetGoodownDTO implements Serializable {
 	
 	/**
 	 * 
@@ -23,8 +22,11 @@ public class GoodownDTO implements Serializable {
 	@Setter
 	private String goodownManager;
 	
-	
+	@Getter
+	@Setter
+	private String goodownId;
 	
 	
 
 }
+

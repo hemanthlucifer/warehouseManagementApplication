@@ -42,76 +42,54 @@ public class GoodownProductsServiceImpl implements GoodownProductService {
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
-	private static final Logger logger = LoggerFactory.getLogger(GoodownProductsServiceImpl.class);
+	
 
 	@Override
 	public GoodownProductDTO addProductToGoodown(GoodownProductDTO goodownProductDTO) {
-		//storeAndCategoryValidatior.validate(goodownProductDTO.getCategoryId().getCategoryId(), goodownProductDTO.getStoreId());
-		logger.info("addProductToGoodown started");
+		storeAndCategoryValidatior.validate(goodownProductDTO.getCategoryId(), goodownProductDTO.getStoreId());
+		storeAndCategoryValidatior.goodownValidator(goodownProductDTO.getGoodownId());
 		GoodownProduct goodownProduct = convertor.convertGProductDtoToEntity(goodownProductDTO);
 		goodownProduct = productRepository.save(goodownProduct);
-		logger.info("Product has saved to goodown");
 		GoodownProductDTO productDto = convertor.convertGoodownProductToDto(goodownProduct);
-		logger.info("addProductToGoodown completed");
 		return productDto;
 	}
 
 	@Override
 	public GoodownProductDTO updateGoodownProduct(String productId,Map<String, Object> fields) {
-		logger.info("updateGoodownProduct started");
+		storeAndCategoryValidatior.validateProduct(productId);
 		Optional<GoodownProduct> product = productRepository.findById(productId);
-		if(product.isEmpty() || product==null) {
-			logger.warn("no product found with the given Id");
-			return null;
-		}
 		fields.forEach((key,value)->{
 			Field field = ReflectionUtils.findField(GoodownProduct.class, key);
 			field.setAccessible(true);
 			ReflectionUtils.setField(field, product.get(), value);
 		});
-		logger.info("updateGoodownProduct completed");
 		return convertor.convertGoodownProductToDto(product.get());
 	}
 
 	@Override
 	public GoodownProductDTO getGoodownProductById(String productId) {
-		logger.info("getGoodownProductById started");
+		storeAndCategoryValidatior.validateProduct(productId);
 		Optional<GoodownProduct> goodownProduct = productRepository.findById(productId);
-		if(goodownProduct==null||goodownProduct.isEmpty()) {
-			logger.warn("no product found with the given Id");
-			return null;
-		}
 		GoodownProductDTO goodownProductDto = convertor.convertGoodownProductToDto(goodownProduct.get());
-		logger.info("getGoodownProductById completed");
 		return goodownProductDto;
 	}
 
 	@Override
 	public void deleteGoodownProductById(String productId) {
-		logger.info("deleteGoodownProductById started");
+		storeAndCategoryValidatior.validateProduct(productId);
 		Optional<GoodownProduct> goodownProduct = productRepository.findById(productId);
-		if(goodownProduct==null || goodownProduct.isEmpty()) {
-			logger.warn("No product with the given Id found");
-		}
 		productRepository.delete(goodownProduct.get());
-		logger.info("deleteGoodownProductById completed");
 	}
 
 	@Override
 	public List<GoodownProductDTO> getAllProductsInAGoodown(String goodownId) {
-		logger.info("getAllProductsInAGoodown started");
 		storeAndCategoryValidatior.goodownValidator(goodownId);
 		List<GoodownProduct> products = productRepository.findAllByGoodownId(goodownRepository.findByGoodownId(goodownId));
-		if(products==null) {
-			logger.warn("no goodown found with the given goodown Id");
-			return null;
-		}
 		List<GoodownProductDTO> productDto = new ArrayList<>();
 		products.forEach(product->{
 			GoodownProductDTO goodownProductDTo = convertor.convertGoodownProductToDto(product);
 			productDto.add(goodownProductDTo);
 		});
-		logger.info("getAllProductsInAGoodown completed");
 		return productDto;
 	}
 	

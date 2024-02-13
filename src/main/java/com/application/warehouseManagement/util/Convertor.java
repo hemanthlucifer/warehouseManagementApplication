@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.application.warehouseManagement.dto.CategoryDTO;
+import com.application.warehouseManagement.dto.GetGoodownDTO;
 import com.application.warehouseManagement.dto.GoodownDTO;
 import com.application.warehouseManagement.dto.GoodownProductDTO;
 import com.application.warehouseManagement.dto.StoreDTO;
@@ -94,9 +95,9 @@ public class Convertor {
 		return goodown;
 	}
 	
-	public GoodownDTO convertGoodownEntityToGoodownDTO(Goodown goodown) {
+	public GetGoodownDTO convertGoodownEntityToGoodownDTO(Goodown goodown) {
 		logger.info("convertGoodownEntityToGoodownDTO started");
-		GoodownDTO goodownDto = new GoodownDTO();
+		GetGoodownDTO goodownDto = new GetGoodownDTO();
 		goodownDto.setGoodownManager(goodown.getGoodownManager());
 		goodownDto.setLocation(goodown.getLocation());
 		goodownDto.setGoodownId(goodown.getGoodownId());

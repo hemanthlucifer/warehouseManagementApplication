@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.application.warehouseManagement.dto.GetGoodownDTO;
 import com.application.warehouseManagement.dto.GoodownDTO;
 import com.application.warehouseManagement.service.GoodownService;
 
@@ -34,8 +35,8 @@ public class GoodownController {
 			@ApiResponse(responseCode="500", description="Something went wrong while creating Goodown")
 	})
 	@PostMapping("/")
-	public ResponseEntity<GoodownDTO> createGoodown(@RequestBody GoodownDTO goodown) {
-		GoodownDTO goodownDTO = service.createGoodown(goodown);
+	public ResponseEntity<GetGoodownDTO> createGoodown(@RequestBody GoodownDTO goodown) {
+		GetGoodownDTO goodownDTO = service.createGoodown(goodown);
 		return new ResponseEntity<>(goodownDTO,HttpStatus.OK);
 	}
 	
@@ -46,8 +47,8 @@ public class GoodownController {
 			@ApiResponse(responseCode="500", description="Something went wrong while creating Goodown")
 	})
 	@GetMapping("/{goodownId}")
-	public ResponseEntity<GoodownDTO> getGoodownById(@PathVariable("goodownId")String goodownId){
-		GoodownDTO goodownDTO = service.getGoodownByGoodownId(goodownId);
+	public ResponseEntity<GetGoodownDTO> getGoodownById(@PathVariable("goodownId")String goodownId){
+		GetGoodownDTO goodownDTO = service.getGoodownByGoodownId(goodownId);
 		return new ResponseEntity<>(goodownDTO,HttpStatus.OK);
 	}
 	

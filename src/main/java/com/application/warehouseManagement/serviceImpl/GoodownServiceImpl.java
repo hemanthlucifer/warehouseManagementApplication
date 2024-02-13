@@ -7,11 +7,13 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.application.warehouseManagement.dto.GetGoodownDTO;
 import com.application.warehouseManagement.dto.GoodownDTO;
 import com.application.warehouseManagement.model.Goodown;
 import com.application.warehouseManagement.repository.GoodownRepository;
 import com.application.warehouseManagement.service.GoodownService;
 import com.application.warehouseManagement.util.Convertor;
+import com.application.warehouseManagement.util.StoreAndCategoryValidatior;
 
 import org.springframework.util.ReflectionUtils;
 @Service
@@ -21,23 +23,24 @@ public class GoodownServiceImpl implements GoodownService {
 	private GoodownRepository goodownRepository;
 	
 	@Autowired
+	private StoreAndCategoryValidatior validator;
+	
+	@Autowired
 	private Convertor convertor;
 
 	@Override
-	public GoodownDTO createGoodown(GoodownDTO goodownDTO) {
+	public GetGoodownDTO createGoodown(GoodownDTO goodownDTO) {
 		Goodown goodown = convertor.convertGoodownDtoToEntity(goodownDTO);
 		goodown = goodownRepository.save(goodown);
 		goodown.setGoodownId("GI"+"-"+goodown.getId());
-		goodownDTO = convertor.convertGoodownEntityToGoodownDTO(goodownRepository.save(goodown));
-		return goodownDTO;
+		GetGoodownDTO getGoodownDTO = convertor.convertGoodownEntityToGoodownDTO(goodownRepository.save(goodown));
+		return getGoodownDTO;
 	}
 
 	@Override
-	public GoodownDTO updateGoodownDetails(String goodownId, Map<String, Object> fields) {
+	public GetGoodownDTO updateGoodownDetails(String goodownId, Map<String, Object> fields) {
+		validator.goodownValidator(goodownId);
 		Goodown goodown = goodownRepository.findByGoodownId(goodownId);
-		if(goodown==null) {
-			return null;
-		}
 		fields.forEach((key,value)->{
 			Field field = ReflectionUtils.findField(Goodown.class, key);
 			field.setAccessible(true);
@@ -48,20 +51,16 @@ public class GoodownServiceImpl implements GoodownService {
 	}
 
 	@Override
-	public GoodownDTO getGoodownByGoodownId(String goodownId) {
+	public GetGoodownDTO getGoodownByGoodownId(String goodownId) {
+		validator.goodownValidator(goodownId);
 		Goodown goodown = goodownRepository.findByGoodownId(goodownId);
-		if(goodown==null) {
-			return null;
-		}
 		return convertor.convertGoodownEntityToGoodownDTO(goodown);
 	}
 
 	@Override
 	public void deleteGoodownByGoodownId(String goodownId) {
+		validator.goodownValidator(goodownId);
 		Goodown goodown = goodownRepository.findByGoodownId(goodownId);
-		if(goodown==null) {
-			
-		}	
 		goodownRepository.delete(goodown);
 	}
 

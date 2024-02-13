@@ -29,7 +29,6 @@ public class StoreServiceImpl implements StoreService {
 
 	@Override
 	public StoreDTO addStoreToGoodown(StoreDTO storeDTO) {
-		
 		Store store = convertor.convertStoreDtoToEntity(storeDTO);
 		store = storeRepository.save(store);
 		storeDTO = convertor.convertStoreEntityToStoreDTO(store);
@@ -39,10 +38,8 @@ public class StoreServiceImpl implements StoreService {
 
 	@Override
 	public StoreDTO updateStoreDetails(int storeId, Map<String, Object> fields) {
+		validator.validateStore(storeId);
 		Optional<Store> store = storeRepository.findById(storeId);
-		if(store.isEmpty()||store==null) {
-			return null;
-		}else {
 			fields.forEach((key,value)->{
 				Field field = ReflectionUtils.findField(Store.class, key);
 				field.setAccessible(true);
@@ -50,7 +47,7 @@ public class StoreServiceImpl implements StoreService {
 			});
 			StoreDTO storeDto = convertor.convertStoreEntityToStoreDTO(store.get());
 			return storeDto;
-		}
+		
 	}
 
 	@Override
