@@ -1,10 +1,10 @@
-package com.inventoryApplication.logisticsService;
+package com.application.warehouseManagement;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LogisticsServiceApplicationTests {
+class WarehouseManagementApplicationTests {
 
 	@Test
 	void contextLoads() {
