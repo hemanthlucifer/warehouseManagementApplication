@@ -13,27 +13,26 @@ import org.springframework.web.bind.annotation.RestController;
 import com.inventoryApplication.logisticsService.dto.GoodownDTO;
 import com.inventoryApplication.logisticsService.service.GoodownService;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiResponses;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.Info;
-import io.swagger.annotations.SwaggerDefinition;
+
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.info.Contact;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 
 @RestController
 @RequestMapping("/goodown")
-@SwaggerDefinition(info=@Info(title = "Goodown Controller", version = "v1.0",
-description="This controller used for perfoming CRUD operations on the Goodown"))
-@Api(value="Goodown Controller",tags="Goodown controller")
 public class GoodownController {
 	
 	@Autowired
 	private GoodownService service;
 	
+	@Operation(summary="create Goodown")
 	@ApiResponses(value= {
-			@ApiResponse(code=200,message="Goodown created sucessfully",response=GoodownDTO.class),
-			@ApiResponse(code=400,message="Bad Request"),
-			@ApiResponse(code=500,message="Something went wrong")
+			@ApiResponse(responseCode="200", description="Goodown created sucessfully"),
+			@ApiResponse(responseCode="500", description="Something went wrong while creating Goodown")
 	})
 	@PostMapping("/")
 	public ResponseEntity<GoodownDTO> createGoodown(@RequestBody GoodownDTO goodown) {
@@ -41,11 +40,11 @@ public class GoodownController {
 		return new ResponseEntity<>(goodownDTO,HttpStatus.OK);
 	}
 	
+	@Operation(summary="fetch Goodown by Id")
 	@ApiResponses(value= {
-			@ApiResponse(code=200,message="Goodown fetched sucessfully",response=GoodownDTO.class),
-			@ApiResponse(code=404,message="Goodown not found"),
-			@ApiResponse(code=400,message="Bad Request"),
-			@ApiResponse(code=500,message="Something went wrong")
+			@ApiResponse(responseCode="200", description="Goodown created sucessfully"),
+			@ApiResponse(responseCode="404", description="Goodown not found"),
+			@ApiResponse(responseCode="500", description="Something went wrong while creating Goodown")
 	})
 	@GetMapping("/{goodownId}")
 	public ResponseEntity<GoodownDTO> getGoodownById(@PathVariable("goodownId")String goodownId){

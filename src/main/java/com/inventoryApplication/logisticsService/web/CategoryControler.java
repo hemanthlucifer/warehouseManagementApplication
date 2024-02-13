@@ -14,24 +14,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inventoryApplication.logisticsService.dto.CategoryDTO;
-import com.inventoryApplication.logisticsService.model.Category;
-import com.inventoryApplication.logisticsService.model.Goodown;
-import com.inventoryApplication.logisticsService.repository.CategoryRepository;
+
 import com.inventoryApplication.logisticsService.repository.GoodownRepository;
 import com.inventoryApplication.logisticsService.service.CategoryService;
 import com.inventoryApplication.logisticsService.util.StoreAndCategoryValidatior;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponses;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.Info;
-import io.swagger.annotations.SwaggerDefinition;
+
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.info.Contact;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 @RestController
 @RequestMapping("/category")
-@SwaggerDefinition(info=@Info(title="Category Controller", version = "v1.0",description="This is used for perfoming CRUD operations for goodown category"))
-@Api(value="Logistics service category controller", tags="Category Controller")
+@OpenAPIDefinition(info=@Info(contact=@Contact(name="warehouse website team"),
+description="This service handles all the operations regarding the logistics of warehouse",version="1.0"))
 public class CategoryControler {
 	
 	@Autowired
@@ -43,36 +42,35 @@ public class CategoryControler {
 	@Autowired
 	private StoreAndCategoryValidatior validator;
 	
+	@Operation(summary="create catgeory")
 	@ApiResponses(value= {
-			@ApiResponse(code=200,message="Category created sucessfully",response=CategoryDTO.class),
-			@ApiResponse(code=400,message="Bad Request"),
-			@ApiResponse(code=500,message="Something went wrong")
+			@ApiResponse(responseCode="200", description="Category created sucessfully"),
+			@ApiResponse(responseCode="500", description="Something went wrong while creating category")
 	})
-	@ApiOperation(value="Category creation",notes="This API is used for creating the category",nickname="Create Category")
 	@PostMapping("/")
 	public ResponseEntity<CategoryDTO> createCategory(@RequestBody CategoryDTO categoryDTO){
 		categoryDTO = service.createCategory(categoryDTO);
 		return new ResponseEntity<>(categoryDTO,HttpStatus.OK);
 	}
 	
+	@Operation(summary="get catgeory by ID")
 	@ApiResponses(value= {
-			@ApiResponse(code=200,message="Category fetched sucessfully",response=CategoryDTO.class),
-			@ApiResponse(code=404,message="category not found with the given Id"),
-			@ApiResponse(code=500,message="Something went wrong")
+			@ApiResponse(responseCode="200", description="Category fetched sucessfully"),
+			@ApiResponse(responseCode="404", description="Category not found"),
+			@ApiResponse(responseCode="500", description="Something went wrong while fetching category")
 	})
-	@ApiOperation(value="Category fetching",notes="This API is used for fetching the category",nickname="get Category")
 	@GetMapping("/getCategory/{categoryId}")
 	public ResponseEntity<CategoryDTO> getCategoryById(@PathVariable("categoryId")String categoryId){
 		CategoryDTO category = service.getCategory(categoryId);
 		return new ResponseEntity<>(category,HttpStatus.OK);
 	}
 	
+	@Operation(summary="get all categories in goodown")
 	@ApiResponses(value= {
-			@ApiResponse(code=200,message="Categories fetched sucessfully",response=CategoryDTO.class),
-			@ApiResponse(code=404,message="Goodown not found with the given Id"),
-			@ApiResponse(code=500,message="Something went wrong")
+			@ApiResponse(responseCode="200", description="all categories fetched sucessfully"),
+			@ApiResponse(responseCode="404", description="Goodown not found"),
+			@ApiResponse(responseCode="500", description="Something went wrong while fetching categories")
 	})
-	@ApiOperation(value="Category fetching",notes="This API is used for fetching all categories in a goodown",nickname="get Category")
 	@GetMapping("/{goodownId}")
 	public ResponseEntity<List<CategoryDTO>> getAllCategoriesInGoodown(@PathVariable("goodownId") String goodownId) {
 		List<CategoryDTO> categories = service.getAllCategoriesInGoodown(goodownId);

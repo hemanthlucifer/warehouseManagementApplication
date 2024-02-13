@@ -16,16 +16,11 @@ import com.inventoryApplication.logisticsService.dto.GoodownProductDTO;
 import com.inventoryApplication.logisticsService.model.Category;
 import com.inventoryApplication.logisticsService.service.QuoteService;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-import io.swagger.annotations.Info;
-import io.swagger.annotations.SwaggerDefinition;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.Operation;
 
-@SwaggerDefinition(info=@Info(title = "Quotation Controller", version = "v1.0",
-description="This contoller is used for perfoming CRUD operations on the Quotation"))
-@Api(value="Quotation Controller",tags ="Quotation")
+
 @RestController
 @RequestMapping("/quotation")
 public class QuotationController {
@@ -33,22 +28,22 @@ public class QuotationController {
 	@Autowired
 	private QuoteService service;
 	
+	@Operation(summary="create catgeory")
 	@ApiResponses(value= {
-			@ApiResponse(code=200,message="Quotation created sucessfully",response=GetQuoteDTO.class),
-			@ApiResponse(code=400,message="Bad Request"),
-			@ApiResponse(code=500,message="Something went wrong")
+			@ApiResponse(responseCode="200", description="Quotation created sucessfully"),
+			@ApiResponse(responseCode="500", description="Something went wrong while creating quotation")
 	})
-	@ApiOperation(value="Quotation creation",notes="This API is used for creating the quotation",nickname="Create Quotation")
 	@PostMapping("/")
 	public ResponseEntity<GetQuoteDTO> createQuotation(@RequestBody CreateQuoteDTO quoteDto) {
 		GetQuoteDTO quote = service.createQuote(quoteDto);
 		return new ResponseEntity<>(quote,HttpStatus.OK);
 	}
 	
+	@Operation(summary="fetch quotation")
 	@ApiResponses(value= {
-			@ApiResponse(code=200,message="Quotation fetched sucessfully",response=GetQuoteDTO.class),
-			@ApiResponse(code=404,message="Quotation not found with the given Id"),
-			@ApiResponse(code=500,message="Something went wrong")
+			@ApiResponse(responseCode="200", description="Quotation fetched sucessfully"),
+			@ApiResponse(responseCode="404", description="Quotation not found"),
+			@ApiResponse(responseCode="500", description="Something went wrong while fetching quotation")
 	})
 	@GetMapping("/{quoteId}")
 	public ResponseEntity<GetQuoteDTO> getQuoteById(@PathVariable("quoteId")int quoteId){

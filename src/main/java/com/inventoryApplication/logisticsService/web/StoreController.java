@@ -11,22 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inventoryApplication.logisticsService.dto.GetQuoteDTO;
-import com.inventoryApplication.logisticsService.dto.GoodownProductDTO;
+
 import com.inventoryApplication.logisticsService.dto.StoreDTO;
-import com.inventoryApplication.logisticsService.model.Category;
+
 import com.inventoryApplication.logisticsService.service.StoreService;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-import io.swagger.annotations.Info;
-import io.swagger.annotations.SwaggerDefinition;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
-@SwaggerDefinition(info=@Info(title = "Store Controller", version = "v1.0",
-description="This contoller is used for perfoming CRUD operations on the store"))
-@Api(value="Store Controller",tags ="Store")
+
+
 @RestController
 @RequestMapping("/store")
 public class StoreController {
@@ -34,36 +29,35 @@ public class StoreController {
 	@Autowired
 	private StoreService service;
 	
+	@Operation(summary="create Strore")
 	@ApiResponses(value= {
-			@ApiResponse(code=200,message="Store created sucessfully",response=StoreDTO.class),
-			@ApiResponse(code=400,message="Bad Request"),
-			@ApiResponse(code=500,message="Something went wrong")
+			@ApiResponse(responseCode="200", description="Store created sucessfully"),
+			@ApiResponse(responseCode="500", description="Something went wrong while creating store")
 	})
-	@ApiOperation(value="Store creation",notes="This API is used for creating the store product",nickname="Create goodown product")
 	@PostMapping("/")
 	public ResponseEntity<StoreDTO> createStore(@RequestBody StoreDTO store) {
 		StoreDTO storeDTO = service.addStoreToGoodown(store);
 		return new ResponseEntity<>(storeDTO,HttpStatus.OK);
 	}
 	
+	@Operation(summary="fetch store by storeId")
 	@ApiResponses(value= {
-			@ApiResponse(code=200,message="Store fetched sucessfully",response=StoreDTO.class),
-			@ApiResponse(code=404,message="store not found with the given Id"),
-			@ApiResponse(code=500,message="Something went wrong")
+			@ApiResponse(responseCode="200", description="Store fetched sucessfully"),
+			@ApiResponse(responseCode="404", description="Store not found"),
+			@ApiResponse(responseCode="500", description="Something went wrong while fetching store")
 	})
-	@ApiOperation(value="Store creation",notes="This API is used for fetching the store with store Id",nickname="get store by id")
 	@GetMapping("/{storeId}")
 	public ResponseEntity<StoreDTO> getStoreById(@PathVariable("storeId")int storeId){
 		StoreDTO storeDto = service.getStoreDetailsByStoreId(storeId);
 		return new ResponseEntity<>(storeDto,HttpStatus.OK);
 	}
 	
+	@Operation(summary="fetch store by store name")
 	@ApiResponses(value= {
-			@ApiResponse(code=200,message="Store fetched sucessfully",response=StoreDTO.class),
-			@ApiResponse(code=404,message="store not found with the given Id"),
-			@ApiResponse(code=500,message="Something went wrong")
+			@ApiResponse(responseCode="200", description="store fetched sucessfully"),
+			@ApiResponse(responseCode="404", description="Store not found"),
+			@ApiResponse(responseCode="500", description="Something went wrong while fetching store")
 	})
-	@ApiOperation(value="Store fetching",notes="This API is used for fetching the store with store name",nickname="get store by name")
 	@GetMapping("/")
 	public ResponseEntity<StoreDTO> getStoreByName(@RequestParam("storeName") String storeName){
 		StoreDTO storeDTO = service.getStoreDetailsByStoreName(storeName);

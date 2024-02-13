@@ -12,6 +12,7 @@ import com.inventoryApplication.logisticsService.model.Store;
 import com.inventoryApplication.logisticsService.repository.StoreRepository;
 import com.inventoryApplication.logisticsService.service.StoreService;
 import com.inventoryApplication.logisticsService.util.Convertor;
+import com.inventoryApplication.logisticsService.util.StoreAndCategoryValidatior;
 
 import org.springframework.util.ReflectionUtils;
 @Service
@@ -22,6 +23,9 @@ public class StoreServiceImpl implements StoreService {
 	
 	@Autowired
 	private Convertor convertor;
+	
+	@Autowired
+	private StoreAndCategoryValidatior validator;
 
 	@Override
 	public StoreDTO addStoreToGoodown(StoreDTO storeDTO) {
@@ -51,13 +55,11 @@ public class StoreServiceImpl implements StoreService {
 
 	@Override
 	public StoreDTO getStoreDetailsByStoreId(int storeId) {
-		Optional<Store> store = storeRepository.findById(storeId);
-		if(store.isEmpty() || store==null) {
-			return null;
-		}else {
-		   StoreDTO storeDto = convertor.convertStoreEntityToStoreDTO(store.get());
-		   return storeDto;
-		}
+		validator.validateStore(storeId);
+		Optional<Store> store = storeRepository.findById(storeId);  
+		StoreDTO storeDto = convertor.convertStoreEntityToStoreDTO(store.get());
+		return storeDto;
+		
 	}
 
 	@Override
