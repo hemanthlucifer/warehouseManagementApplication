@@ -2,6 +2,7 @@ package com.application.warehouseManagement.util;
 
 import java.util.Locale;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,14 +16,19 @@ import com.application.warehouseManagement.exceptions.GoodownNotFoundException;
 import com.application.warehouseManagement.exceptions.MessageCodes;
 import com.application.warehouseManagement.exceptions.ProductNotFoundException;
 import com.application.warehouseManagement.exceptions.StoreNotFoundException;
+import com.application.warehouseManagement.exceptions.UserNotFoundException;
 import com.application.warehouseManagement.model.Category;
 import com.application.warehouseManagement.model.Goodown;
 import com.application.warehouseManagement.model.GoodownProduct;
+import com.application.warehouseManagement.model.Order;
 import com.application.warehouseManagement.model.Store;
+import com.application.warehouseManagement.model.User;
 import com.application.warehouseManagement.repository.CategoryRepository;
 import com.application.warehouseManagement.repository.GoodownRepository;
+import com.application.warehouseManagement.repository.OrderRepository;
 import com.application.warehouseManagement.repository.ProductRepository;
 import com.application.warehouseManagement.repository.StoreRepository;
+import com.application.warehouseManagement.repository.UserRepository;
 
 @Component
 public class StoreAndCategoryValidatior {
@@ -40,7 +46,13 @@ public class StoreAndCategoryValidatior {
 	private ProductRepository productRepository;
 	
 	@Autowired
+	private UserRepository userRepository;
+	
+	@Autowired
 	private MessageSource messageSource;
+	
+	@Autowired
+	private OrderRepository orderRepository;
 	
 	private static final Logger logger = LoggerFactory.getLogger(StoreAndCategoryValidatior.class);
 	
@@ -89,6 +101,21 @@ public class StoreAndCategoryValidatior {
 		if(product.isEmpty()||product==null) {
 			logger.warn("No product with the given product id found");
 			throw new ProductNotFoundException(messageSource.getMessage(MessageCodes.productNotFound, null, LocaleContextHolder.getLocale()));
+		}
+	}
+	
+	public void validateUser(String userId) {
+		Optional<User> user = userRepository.findById(userId);
+		if(user.isEmpty()||user==null) {
+			logger.warn("No user found with the given Id");
+			throw new UserNotFoundException(messageSource.getMessage(MessageCodes.userNotFound, null, LocaleContextHolder.getLocale()));
+		}
+	}
+	
+	public void validateOrder(UUID orderId) {
+		Optional<Order> order = orderRepository.findById(orderId);
+		if(order.isEmpty()|| order==null) {
+			logger.warn("No order found with the given orderid");
 		}
 	}
 

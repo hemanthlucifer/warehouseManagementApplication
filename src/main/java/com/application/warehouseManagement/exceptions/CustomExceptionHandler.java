@@ -29,10 +29,26 @@ public class CustomExceptionHandler {
 		return new ResponseEntity<>(message,HttpStatus.NOT_FOUND);
 	}
 	
+	@ExceptionHandler(ProductNotFoundException.class)
 	public ResponseEntity<String> productNotFound(ProductNotFoundException exception){
 		MessageBuilder response = new MessageBuilder();
 		String message = response.responseBuilder(MessageCodes.productNotFound, exception.getMessage());
 		return new ResponseEntity<>(message,HttpStatus.NOT_FOUND);
 	}
+	
+	@ExceptionHandler(RoleIsNotValidException.class)
+	public ResponseEntity<String> roleIsNotValidException(RoleIsNotValidException exception){
+		MessageBuilder response = new MessageBuilder();
+		String message = response.responseBuilder(MessageCodes.roleNotValid, exception.getMessage());
+		return new ResponseEntity<>(message,HttpStatus.BAD_REQUEST);
+	}
+	
+	@ExceptionHandler(UserNotFoundException.class)
+	public ResponseEntity<String> userNotFoundException(UserNotFoundException exception){
+		MessageBuilder response = new MessageBuilder();
+		String message = response.responseBuilder(MessageCodes.userNotFound, exception.getMessage());
+		return new ResponseEntity<>(message,HttpStatus.NOT_FOUND);
+	}
+	
 
 }

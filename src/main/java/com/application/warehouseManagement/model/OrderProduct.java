@@ -2,45 +2,44 @@ package com.application.warehouseManagement.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Data
-public class Quote {
+@Entity
+public class OrderProduct {
 	
 	@Id
 	@Getter
 	@Setter
 	@Column
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int quoteId;
+	private String productId;
 	
 	@Getter
 	@Setter
 	@Column
-	private double quotePrice;
+	private String categoryId;
 	
 	@Getter
 	@Setter
 	@Column
-	private String quoteGroup;
+	private String productName;
 	
 	@Getter
 	@Setter
 	@Column
-	private int storeId;
+	private String manufacturerId;
 	
 	@Getter
 	@Setter
 	@Column
-	private String goodownId;
+	private double productPrice;
 	
+	@Getter
+	@Setter
+	@Column
+	private int quantityOrdered; 
 
 }
