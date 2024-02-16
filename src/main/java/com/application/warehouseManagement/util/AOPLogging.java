@@ -193,5 +193,67 @@ public class AOPLogging {
 	public void getStoreDetailsByStoreNameEnd() {
 		logger.info("get store details by store name completed");
 	}
+	
+	@Before("execution(public * com.application.warehouseManagement.util.StoreAndCategoryValidatior.goodownValidator(String))")
+	public void goodownValidator() {
+		logger.info("Goodown validation started");
+	}
+	
+	@AfterReturning("execution(public * com.application.warehouseManagement.util.StoreAndCategoryValidatior.goodownValidator(String))")
+	public void goodownValidatorEnd() {
+		logger.info("Goodown validation completed");
+	}
+	
+	@Before("execution(public * com.application.warehouseManagement.util.StoreAndCategoryValidatior.validateStore(int))")
+	public void validateStore() {
+		logger.info("Store validation started");
+	}
+	
+	@AfterReturning("execution(public * com.application.warehouseManagement.util.StoreAndCategoryValidatior.validateStore(int))")
+	public void validateStoreEnd() {
+		logger.info("Store validation completed");
+	}
+	
+	@Before("execution(public * com.application.warehouseManagement.util.StoreAndCategoryValidatior.validateCategory(String))")
+	public void validateCategory() {
+		logger.info("Category validation started");
+	}
+	
+	@AfterReturning("execution(public * com.application.warehouseManagement.util.StoreAndCategoryValidatior.validateCategory(String))")
+	public void validateCategoryEnd() {
+		logger.info("Category validation completed");
+	}
+	
+	@Before("execution(public * com.application.warehouseManagement.util.StoreAndCategoryValidatior.validateProduct(String))")
+	public void validateProduct() {
+		logger.info("Product validation started");
+	}
+	
+	@AfterReturning("execution(public * com.application.warehouseManagement.util.StoreAndCategoryValidatior.validateProduct(String))")
+	public void validateProductEnd() {
+		logger.info("Product validation completed");
+	}
+	
+	@Before("execution(public * com.application.warehouseManagement.util.StoreAndCategoryValidatior.validateUser(String))")
+	public void validateUser() {
+		logger.info("User validation started");
+	}
+	
+	@AfterReturning("execution(public * com.application.warehouseManagement.util.StoreAndCategoryValidatior.validateUser(String))")
+	public void validateUserEnd() {
+		logger.info("User validation completed");
+	}
+	
+	@Before("execution(public * com.application.warehouseManagement.util.StoreAndCategoryValidatior.validateOrder(java.util.UUID))")
+	public void validateOrder() {
+		logger.info("Order validation started");
+	}
+	
+	@Before("execution(public * com.application.warehouseManagement.util.StoreAndCategoryValidatior.validateOrder(java.util.UUID))")
+	public void validateOrderEnd() {
+		logger.info("Order validation completed");
+	}
+	
+	
 
 }

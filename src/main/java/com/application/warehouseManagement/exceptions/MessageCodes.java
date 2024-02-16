@@ -8,5 +8,6 @@ public final class MessageCodes {
 	public static final String productNotFound = "ECOMMLOG004";
 	public static final String roleNotValid = "ECOMMLOG005";
 	public static final String userNotFound = "ECOMMLOG006";
+	public static final String orderNotFound = "ECOMMLOG007";
 
 }

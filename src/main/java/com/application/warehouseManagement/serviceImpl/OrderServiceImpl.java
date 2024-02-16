@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.application.warehouseManagement.dto.GetOrderDTO;
 import com.application.warehouseManagement.dto.OrderDTO;
-import com.application.warehouseManagement.model.Order;
+import com.application.warehouseManagement.model.WarehouseOrder;
 import com.application.warehouseManagement.model.OrderGroup;
 import com.application.warehouseManagement.model.OrderProduct;
 import com.application.warehouseManagement.repository.OrderGroupRepository;
@@ -42,8 +42,7 @@ public class OrderServiceImpl implements OrderService {
 	public GetOrderDTO createOrder(OrderDTO orderDTO) {
 		validator.goodownValidator(orderDTO.getGoodownId());
 		validator.validateStore(orderDTO.getStoreId());
-		Order order = convertor.convertOrderDTOToEntity(orderDTO);
-		order.setOrderId(UUID.randomUUID());
+		WarehouseOrder order = convertor.convertOrderDTOToEntity(orderDTO);
 		orderDTO.getOrderProducts().forEach(orderProduct -> {
 			OrderGroup group = new OrderGroup();
 			group.setOrderId(order.getOrderId());
@@ -51,7 +50,7 @@ public class OrderServiceImpl implements OrderService {
 			groupRepository.save(group);
 			orderProductRepository.save(orderProduct);
 		});
-		Order savedOrder = orderRepository.save(order);
+		WarehouseOrder savedOrder = orderRepository.save(order);
 		GetOrderDTO getOrderDTO = convertor.convertOrderEntityToDTO(savedOrder);
 		List<String> productId =  groupRepository.findAllProductIdByOrderId(order.getOrderId());
 		List<OrderProduct> products = orderProductRepository.findAllById(productId);
@@ -62,7 +61,7 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public GetOrderDTO getOrder(UUID orderId) {
 		validator.validateOrder(orderId);
-		Order order = orderRepository.findById(orderId).get();
+		WarehouseOrder order = orderRepository.findById(orderId).get();
 		GetOrderDTO getOrderDTO = new GetOrderDTO();
 		getOrderDTO = convertor.convertOrderEntityToDTO(order);
 		List<String> productId =  groupRepository.findAllProductIdByOrderId(order.getOrderId());
@@ -73,7 +72,7 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public GetOrderDTO updateQualityAndOntimeStatus(GetOrderDTO orderDTO) {
-		Order order = orderRepository.findById(orderDTO.getOrderId()).get();
+		WarehouseOrder order = orderRepository.findById(orderDTO.getOrderId()).get();
 		order.setOnTime(orderDTO.isOntime());
 		boolean isValidQuality = EnumUtils.isValidEnum(OrderQuality.class, orderDTO.getQuality().toUpperCase());
 		if(isValidQuality) {

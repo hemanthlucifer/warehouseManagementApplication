@@ -20,7 +20,7 @@ import com.application.warehouseManagement.dto.UserDTO;
 import com.application.warehouseManagement.model.Category;
 import com.application.warehouseManagement.model.Goodown;
 import com.application.warehouseManagement.model.GoodownProduct;
-import com.application.warehouseManagement.model.Order;
+import com.application.warehouseManagement.model.WarehouseOrder;
 import com.application.warehouseManagement.model.Store;
 import com.application.warehouseManagement.model.User;
 import com.application.warehouseManagement.repository.CategoryRepository;
@@ -157,7 +157,7 @@ public class Convertor {
 		return userDTO;
 	}
 	
-	public GetOrderDTO convertOrderEntityToDTO(Order order) {
+	public GetOrderDTO convertOrderEntityToDTO(WarehouseOrder order) {
 		logger.info("convertOrderEntityToDTO started");
 		GetOrderDTO orderDTO = new GetOrderDTO();
 		orderDTO.setGoodownId(order.getGoodownId());
@@ -172,9 +172,9 @@ public class Convertor {
 		return orderDTO;
 	}
 	
-	public Order convertOrderDTOToEntity(OrderDTO orderDTO) {
+	public WarehouseOrder convertOrderDTOToEntity(OrderDTO orderDTO) {
 		logger.info("convertOrderDTOToEntity started");
-		Order order = new Order();
+		WarehouseOrder order = new WarehouseOrder();
 		order.setGoodownId(orderDTO.getGoodownId());
 		order.setOnTime(orderDTO.isOntime());
 		order.setOrderPlacedDate(order.getOrderPlacedDate());

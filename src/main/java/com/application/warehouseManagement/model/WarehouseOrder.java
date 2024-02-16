@@ -15,13 +15,13 @@ import lombok.Setter;
 
 @Data
 @Entity
-public class Order {
+public class WarehouseOrder {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.UUID)
 	@Getter
 	@Setter
 	@Column
+	@GeneratedValue(strategy=GenerationType.UUID)
 	private UUID orderId;
 	
 	@Getter

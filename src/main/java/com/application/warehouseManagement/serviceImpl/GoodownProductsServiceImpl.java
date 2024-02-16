@@ -46,7 +46,8 @@ public class GoodownProductsServiceImpl implements GoodownProductService {
 
 	@Override
 	public GoodownProductDTO addProductToGoodown(GoodownProductDTO goodownProductDTO) {
-		storeAndCategoryValidatior.validate(goodownProductDTO.getCategoryId(), goodownProductDTO.getStoreId());
+		storeAndCategoryValidatior.validateStore(goodownProductDTO.getStoreId());
+		storeAndCategoryValidatior.validateCategory(goodownProductDTO.getCategoryId());
 		storeAndCategoryValidatior.goodownValidator(goodownProductDTO.getGoodownId());
 		GoodownProduct goodownProduct = convertor.convertGProductDtoToEntity(goodownProductDTO);
 		goodownProduct = productRepository.save(goodownProduct);
