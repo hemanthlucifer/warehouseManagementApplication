@@ -3,7 +3,7 @@ package com.application.warehouseManagement;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@SpringBootTest()
 class WarehouseManagementApplicationTests {
 
 	@Test

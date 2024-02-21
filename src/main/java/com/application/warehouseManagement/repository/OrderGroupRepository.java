@@ -9,6 +9,6 @@ import com.application.warehouseManagement.model.OrderGroup;
 
 public interface OrderGroupRepository extends JpaRepository<OrderGroup,Integer> {
 	
-	List<String> findAllProductIdByOrderId(UUID orderId);
+	List<OrderGroup> findAllProductIdByOrderId(UUID orderId);
 
 }

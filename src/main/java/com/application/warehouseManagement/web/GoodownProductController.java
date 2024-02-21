@@ -56,7 +56,7 @@ public class GoodownProductController {
 			@ApiResponse(responseCode="200", description="GoodownProducts fetched sucessfully"),
 			@ApiResponse(responseCode="500", description="Something went wrong while fetching GoodownProducts")
 	})
-	@GetMapping("/goodownCategory/{goodownId}/{categoryId}")
+	@GetMapping("/{goodownId}/{categoryId}")
 	public ResponseEntity<List<GoodownProductDTO>> getAllProductsInCategoryInGoodown(@PathVariable String goodownId, @PathVariable String categoryId){
 		List<GoodownProductDTO> goodownProductDto = service.getAllProductsInCategoryInGoodown(goodownId, categoryId);
 		return new ResponseEntity<>(goodownProductDto,HttpStatus.OK);

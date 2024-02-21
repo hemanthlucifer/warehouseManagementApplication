@@ -1,5 +1,6 @@
 package com.application.warehouseManagement.serviceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -52,8 +53,13 @@ public class OrderServiceImpl implements OrderService {
 		});
 		WarehouseOrder savedOrder = orderRepository.save(order);
 		GetOrderDTO getOrderDTO = convertor.convertOrderEntityToDTO(savedOrder);
-		List<String> productId =  groupRepository.findAllProductIdByOrderId(order.getOrderId());
-		List<OrderProduct> products = orderProductRepository.findAllById(productId);
+		List<OrderGroup> orderProductIds =  groupRepository.findAllProductIdByOrderId(order.getOrderId());
+		List<String> productIds = new ArrayList<>();
+		orderProductIds.forEach(orderProduct->{
+			String productId = orderProduct.getProductId();
+			productIds.add(productId);
+		});
+		List<OrderProduct> products = orderProductRepository.findAllById(productIds);
 		getOrderDTO.setOrderProducts(products);
 		return getOrderDTO;
 	}
@@ -64,8 +70,13 @@ public class OrderServiceImpl implements OrderService {
 		WarehouseOrder order = orderRepository.findById(orderId).get();
 		GetOrderDTO getOrderDTO = new GetOrderDTO();
 		getOrderDTO = convertor.convertOrderEntityToDTO(order);
-		List<String> productId =  groupRepository.findAllProductIdByOrderId(order.getOrderId());
-		List<OrderProduct> products = orderProductRepository.findAllById(productId);
+		List<OrderGroup> orderProductIds =  groupRepository.findAllProductIdByOrderId(order.getOrderId());
+		List<String> productIds = new ArrayList<>();
+		orderProductIds.forEach(orderProduct->{
+			String productId = orderProduct.getProductId();
+			productIds.add(productId);
+		});
+		List<OrderProduct> products = orderProductRepository.findAllById(productIds);
 		getOrderDTO.setOrderProducts(products);
 		return getOrderDTO;
 	}
@@ -79,8 +90,13 @@ public class OrderServiceImpl implements OrderService {
 			order.setQuality(orderDTO.getQuality());
 		}
 		GetOrderDTO getOrderDTO = convertor.convertOrderEntityToDTO(order);
-		List<String> productId =  groupRepository.findAllProductIdByOrderId(order.getOrderId());
-		List<OrderProduct> products = orderProductRepository.findAllById(productId);
+		List<OrderGroup> orderProductIds =  groupRepository.findAllProductIdByOrderId(order.getOrderId());
+		List<String> productIds = new ArrayList<>();
+		orderProductIds.forEach(orderProduct->{
+			String productId = orderProduct.getProductId();
+			productIds.add(productId);
+		});
+		List<OrderProduct> products = orderProductRepository.findAllById(productIds);
 		getOrderDTO.setOrderProducts(products);
 		return getOrderDTO;
 	}
