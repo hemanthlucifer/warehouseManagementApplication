@@ -1,6 +1,10 @@
 package com.application.warehouseManagement.dto;
 
 
+import java.util.List;
+
+import com.application.warehouseManagement.util.UserRoles;
+
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +26,10 @@ public class UserDTO {
 	
 	@Getter
 	@Setter
-	private String role;
+	private UserRoles role;
+	
+	@Getter
+	@Setter
+	private List<String> goodownId;
 
 }

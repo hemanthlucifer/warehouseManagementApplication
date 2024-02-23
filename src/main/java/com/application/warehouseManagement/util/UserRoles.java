@@ -2,6 +2,6 @@ package com.application.warehouseManagement.util;
 
 public enum UserRoles {
 	
-	USER,SUPPORT,ADMIN
+	ADMIN,MANAGER,REGIONALMANAGER,SUPPORT
 
 }

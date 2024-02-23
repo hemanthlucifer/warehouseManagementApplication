@@ -7,13 +7,16 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.application.warehouseManagement.dto.GetUserDTO;
 import com.application.warehouseManagement.dto.UserDTO;
 import com.application.warehouseManagement.service.UserService;
 
 import io.swagger.v3.oas.annotations.Operation;
+
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
@@ -30,7 +33,7 @@ public class UserController {
 			@ApiResponse(responseCode="500", description="Something went wrong while creating store")
 	})
 	@PostMapping("/")
-	public ResponseEntity<UserDTO> createUser(UserDTO userDTO){
+	public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO){
 		UserDTO user = userService.createUser(userDTO);
 		return new ResponseEntity<>(user,HttpStatus.OK);
 	}
@@ -56,8 +59,8 @@ public class UserController {
 	})
 
 	@GetMapping("/{userId}")
-	public ResponseEntity<UserDTO> getUserById(@PathVariable("userId")String userId){
-		UserDTO userDTO = userService.getUserById(userId);
+	public ResponseEntity<GetUserDTO> getUserById(@PathVariable("userId")String userId){
+		GetUserDTO userDTO = userService.getUserById(userId);
 		return new ResponseEntity<>(userDTO,HttpStatus.OK);
 	}
 

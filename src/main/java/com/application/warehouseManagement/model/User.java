@@ -1,7 +1,14 @@
 package com.application.warehouseManagement.model;
 
+import com.application.warehouseManagement.util.UserRoles;
+
+import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.Getter;
@@ -29,7 +36,7 @@ public class User {
 	
 	@Getter
 	@Setter
-	@Column
-	private String role;
+	@Enumerated(EnumType.STRING)
+	private UserRoles role;
 
 }
