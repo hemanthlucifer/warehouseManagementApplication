@@ -42,6 +42,7 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private GoodownRepository goodownRepository;
 	
+	@Autowired
 	private StoreAndCategoryValidatior validator;
 
 	@Override
@@ -72,16 +73,22 @@ public class UserServiceImpl implements UserService {
 	public GetUserDTO getUserById(String userId) {
 		validator.validateUser(userId);
 		User user = userRepository.findById(userId).get();
-		UserDTO userDTO = convertor.convertUserEntityToDTO(user);
 		List <UserGoodown> userGoodowns = ugRepository.findAllByEmailId(userId);
 		List<Goodown> goodowns = new ArrayList<>();
 		GetUserDTO getUserDTO = new GetUserDTO();
-		getUserDTO.setUserDto(userDTO);
-		userGoodowns.forEach(userGoodown->{
-			Goodown goodown = goodownRepository.findByGoodownId(userGoodown.getGoodownId());
-			goodowns.add(goodown);
-		});
-		getUserDTO.setGoodowns(goodowns);
+		getUserDTO.setUserId(userId);
+		getUserDTO.setUserName(user.getUserName());
+		getUserDTO.setUserRole(user.getRole());
+		if(user.getRole().equals(UserRoles.ADMIN)) {
+			List<Goodown> adminGoodowns = goodownRepository.findAll();
+			getUserDTO.setGoodowns(adminGoodowns);
+		}else {
+			userGoodowns.forEach(userGoodown->{
+				Goodown goodown = goodownRepository.findByGoodownId(userGoodown.getGoodownId());
+				goodowns.add(goodown);
+			});
+			getUserDTO.setGoodowns(goodowns);
+		}
 		return getUserDTO;
 	}
 
