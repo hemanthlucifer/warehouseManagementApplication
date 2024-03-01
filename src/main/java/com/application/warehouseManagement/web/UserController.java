@@ -1,6 +1,7 @@
 package com.application.warehouseManagement.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -9,10 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.application.warehouseManagement.dto.GetUserDTO;
 import com.application.warehouseManagement.dto.UserDTO;
+import com.application.warehouseManagement.model.Goodown;
 import com.application.warehouseManagement.service.UserService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -62,6 +65,18 @@ public class UserController {
 	public ResponseEntity<GetUserDTO> getUserById(@PathVariable("userId")String userId){
 		GetUserDTO userDTO = userService.getUserById(userId);
 		return new ResponseEntity<>(userDTO,HttpStatus.OK);
+	}
+	
+	@Operation(summary="fetch admin goodowns")
+	@ApiResponses(value= {
+			@ApiResponse(responseCode="200", description="goodowns fetched sucessfully"),
+			@ApiResponse(responseCode="500", description="Something went wrong while fetching goodowns"),
+	})
+
+	@GetMapping("/admin/goodowns")
+	public Page<Goodown> getAdminGoodowns(@RequestParam(defaultValue="0") int pageNumber, @RequestParam(defaultValue="10") int pageSize){
+		Page<Goodown> goodownList = userService.getAdminGoodowns(pageNumber, pageSize);
+		return goodownList;
 	}
 
 }

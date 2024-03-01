@@ -1,5 +1,13 @@
 INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-1','Ongole','Hemanth');
 INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-2','Hyderabad','Hemanth');
+INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-3','Banglore','Hemanth');
+INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-4','Chennai','Hemanth');
+INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-5','Mumbai','Hemanth');
+INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-6','Vizag','Hemanth');
+INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-7','Hyderabad','Hemanth');
+INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-8','Mumbai','Hemanth');
+INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-9','Banglore','Hemanth');
+INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-10','Chennai','Hemanth');
 INSERT INTO category (category_id, goodown_id, goodown_capacity, occupied_capacity, available_capacity)
 VALUES
 ('Laptop', 1, 100, 20, 80),

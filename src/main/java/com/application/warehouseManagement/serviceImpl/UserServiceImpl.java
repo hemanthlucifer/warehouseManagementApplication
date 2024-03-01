@@ -7,6 +7,8 @@ import org.apache.commons.lang3.EnumUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.application.warehouseManagement.dto.GetUserDTO;
@@ -80,8 +82,7 @@ public class UserServiceImpl implements UserService {
 		getUserDTO.setUserName(user.getUserName());
 		getUserDTO.setUserRole(user.getRole());
 		if(user.getRole().equals(UserRoles.ADMIN)) {
-			List<Goodown> adminGoodowns = goodownRepository.findAll();
-			getUserDTO.setGoodowns(adminGoodowns);
+			getUserDTO.setGoodowns(null);
 		}else {
 			userGoodowns.forEach(userGoodown->{
 				Goodown goodown = goodownRepository.findByGoodownId(userGoodown.getGoodownId());
@@ -90,6 +91,13 @@ public class UserServiceImpl implements UserService {
 			getUserDTO.setGoodowns(goodowns);
 		}
 		return getUserDTO;
+	}
+
+	@Override
+	public Page<Goodown> getAdminGoodowns(int pageNumber, int pageSize) {
+		PageRequest pageRequest = PageRequest.of(pageNumber, pageSize);
+		Page<Goodown> goodowns = goodownRepository.findAll(pageRequest);
+		return goodowns;
 	}
 
 }
