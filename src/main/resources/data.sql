@@ -1,13 +1,13 @@
-INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-1','Ongole','Hemanth');
-INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-2','Hyderabad','Hemanth');
-INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-3','Banglore','Hemanth');
-INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-4','Chennai','Hemanth');
-INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-5','Mumbai','Hemanth');
-INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-6','Vizag','Hemanth');
-INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-7','Hyderabad','Hemanth');
-INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-8','Mumbai','Hemanth');
-INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-9','Banglore','Hemanth');
-INSERT INTO goodown (goodown_Id,location,goodown_manager) VALUES ('GI-10','Chennai','Hemanth');
+INSERT INTO goodown (goodown_Id,location,goodown_manager,goodown_image) VALUES ('GI-1','Ongole','Hemanth','https://img.freepik.com/premium-photo/large-clean-warehouse-storage-room-with-boxes-merchandise-generative-ai_634358-850.jpg');
+INSERT INTO goodown (goodown_Id,location,goodown_manager,goodown_image) VALUES ('GI-2','Hyderabad','Hemanth','https://t4.ftcdn.net/jpg/01/81/65/85/360_F_181658575_6gz3Gx96iRndmBtXv2llVsGOGsfdT1AP.jpg');
+INSERT INTO goodown (goodown_Id,location,goodown_manager,goodown_image) VALUES ('GI-3','Banglore','Hemanth','https://c1.wallpaperflare.com/preview/504/595/594/warehouse-large-nice.jpg');
+INSERT INTO goodown (goodown_Id,location,goodown_manager,goodown_image) VALUES ('GI-4','Chennai','Hemanth','https://img.freepik.com/free-photo/large-warehouse-with-bright-light-coming-through-door_123827-23506.jpg');
+INSERT INTO goodown (goodown_Id,location,goodown_manager,goodown_image) VALUES ('GI-5','Mumbai','Hemanth','https://cdn.pixabay.com/photo/2017/02/05/21/12/abandoned-2041218_640.jpg');
+INSERT INTO goodown (goodown_Id,location,goodown_manager,goodown_image) VALUES ('GI-6','Vizag','Hemanth','https://t3.ftcdn.net/jpg/04/61/05/50/360_F_461055011_7loYFoVN9ZnpZRCRJnoFgusfVMWacC4M.jpg');
+INSERT INTO goodown (goodown_Id,location,goodown_manager,goodown_image) VALUES ('GI-7','Hyderabad','Hemanth','https://images.pexels.com/photos/236705/pexels-photo-236705.jpeg?cs=srgb&dl=pexels-pixabay-236705.jpg&fm=jpg');
+INSERT INTO goodown (goodown_Id,location,goodown_manager,goodown_image) VALUES ('GI-8','Mumbai','Hemanth','https://wallpapercave.com/wp/wp3702624.jpg');
+INSERT INTO goodown (goodown_Id,location,goodown_manager,goodown_image) VALUES ('GI-9','Banglore','Hemanth','https://c1.wallpaperflare.com/preview/599/926/330/factory-warehouse-boxes-capitalism.jpg');
+INSERT INTO goodown (goodown_Id,location,goodown_manager,goodown_image) VALUES ('GI-10','Chennai','Hemanth','https://watermark.lovepik.com/photo/20220304/large/lovepik-logistics-warehouse-workers-work-exchange-picture_502363560.jpg');
 INSERT INTO category (category_id, goodown_id, goodown_capacity, occupied_capacity, available_capacity)
 VALUES
 ('Laptop', 1, 100, 20, 80),
@@ -49,7 +49,10 @@ INSERT INTO user_goodown (user_goodown_id,email_id, goodown_id)
 VALUES
 (1,'admin@warehouse.com', 'GI-1'),
 (2,'manager@warehouse.com', 'GI-1'),
-(3,'support@warehouse.com', 'GI-1');
+(3,'manager@warehouse.com', 'GI-2'),
+(4,'manager@warehouse.com', 'GI-3'),
+(5,'manager@warehouse.com', 'GI-4'),
+(6,'support@warehouse.com', 'GI-1');
 
 
 

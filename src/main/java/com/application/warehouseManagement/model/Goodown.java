@@ -42,6 +42,11 @@ public class Goodown implements Serializable {
 	@Column
 	private String goodownManager;
 	
+	@Getter
+	@Setter
+	@Column
+	private String goodownImage;
+	
 	public Goodown(){
 		this.goodownId = "GI"+"-"+this.id;
 	}

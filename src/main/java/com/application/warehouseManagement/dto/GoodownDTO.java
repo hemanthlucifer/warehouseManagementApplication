@@ -23,8 +23,9 @@ public class GoodownDTO implements Serializable {
 	@Setter
 	private String goodownManager;
 	
-	
-	
+	@Getter
+	@Setter
+	private String goodownImage;
 	
 
 }
