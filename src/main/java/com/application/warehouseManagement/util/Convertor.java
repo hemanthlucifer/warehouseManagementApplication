@@ -98,6 +98,7 @@ public class Convertor {
 		Goodown goodown = new Goodown();
 		goodown.setGoodownManager(goodownDto.getGoodownManager());
 		goodown.setLocation(goodownDto.getLocation());
+		goodown.setGoodownImage(goodownDto.getGoodownImage());
 		logger.info("convertGoodownDtoToEntity completed");
 		return goodown;
 	}
@@ -108,6 +109,7 @@ public class Convertor {
 		goodownDto.setGoodownManager(goodown.getGoodownManager());
 		goodownDto.setLocation(goodown.getLocation());
 		goodownDto.setGoodownId(goodown.getGoodownId());
+		goodownDto.setGoodownImage(goodown.getGoodownImage());
 		logger.info("convertGoodownEntityToGoodownDTO completed");
 		return goodownDto;
 	}

@@ -26,6 +26,10 @@ public class GetGoodownDTO implements Serializable {
 	@Setter
 	private String goodownId;
 	
+	@Getter
+	@Setter
+	private String goodownImage;
+	
 	
 
 }
